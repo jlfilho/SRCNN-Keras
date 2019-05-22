@@ -84,21 +84,21 @@ class SRCNN():
 
         inputs = Input(shape=(None, None, self.channels))
           
-        conv1 = Conv2D(filters= 64, kernel_size = (9,9), strides=1, 
+        x = Conv2D(filters= 64, kernel_size = (9,9), strides=1, 
             kernel_initializer=RandomNormal(mean=0.0, stddev=0.001, seed=None),bias_initializer='zeros',
             padding = "valid", use_bias=True, name='conv1')(inputs)
-        conv1 = ReLU()(conv1)
+        x = ReLU()(x)
 
-        conv2 = Conv2D(filters= 32, kernel_size = (1,1), strides=1, 
+        x = Conv2D(filters= 32, kernel_size = (1,1), strides=1, 
             kernel_initializer=RandomNormal(mean=0.0, stddev=0.001, seed=None),bias_initializer='zeros',
-            padding = "valid", use_bias=True, name='conv2')(conv1)
-        conv2 = ReLU()(conv2)
+            padding = "valid", use_bias=True, name='conv2')(x)
+        x = ReLU()(x)
 
-        conv3 = Conv2D(filters= self.channels, kernel_size = (5,5), strides=1, 
+        x = Conv2D(filters= self.channels, kernel_size = (5,5), strides=1, 
             kernel_initializer=RandomNormal(mean=0.0, stddev=0.001, seed=None),bias_initializer='zeros',
-            padding = "valid", use_bias=True, name='conv3')(conv1)
+            padding = "valid", use_bias=True, name='conv3')(x)
         
-        model = Model(inputs=inputs, outputs=conv3)
+        model = Model(inputs=inputs, outputs=x)
         model.summary()
         return model
 
@@ -174,13 +174,13 @@ class SRCNN():
         # Callback: Stop training when a monitored quantity has stopped improving
         earlystopping = EarlyStopping(
             monitor='val_loss', 
-            patience=10000, verbose=1, 
+            patience=6000, verbose=1, 
             restore_best_weights=True )
         callbacks.append(earlystopping)
 
         # Callback: Reduce lr when a monitored quantity has stopped improving
-        reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.5,
-                                    patience=300, min_lr=1e-6,verbose=1)
+        reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=1e-1,
+                                    patience=5000, min_lr=1e-6,verbose=1)
         callbacks.append(reduce_lr)
 
         # Callback: save weights after each epoch
@@ -234,14 +234,14 @@ if __name__ == "__main__":
             steps_per_epoch=625,
             steps_per_validation=10,
             crops_per_image=4,
-            print_frequency=10,
+            print_frequency=30,
             log_tensorboard_update_freq=10,
             workers=2,
             max_queue_size=11,
             model_name='SRCNN',
-            datapath_train='../../data/train2017/', 
+            datapath_train='../../data/data_large/', 
             datapath_validation='../../data/val_large', 
-            datapath_test='../../data/SR_testing_datasets/Set5/',
+            datapath_test='../../data/Set5_full/',
             log_weight_path='../model/', 
             log_tensorboard_path='../logs/',
             log_test_path='../test/'
