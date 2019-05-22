@@ -13,6 +13,7 @@ from keras.initializers import RandomNormal
 from util import DataLoader, plot_test_images
 from losses import psnr3 as psnr
 from losses import euclidean
+from restore import VideoRestore
 
 class SRCNN():
     """
@@ -219,16 +220,33 @@ class SRCNN():
             workers=workers
         )
 
+    def predict(self,
+            lr_videopath=None,
+            sr_videopath=None,
+            print_frequency=30,
+            crf=15
+        ):
+        r = VideoRestore()
+        time_elapsed = r.write_srvideo(self.model,lr_videopath,sr_videopath,self.upscaling_factor,print_frequency=print_frequency,crf=crf)
+        return time_elapsed
+
 # Run the SRCNN network
 if __name__ == "__main__":
 
     # Instantiate the TSRGAN object
     print(">> Creating the SRCNN network")
     srcnn = SRCNN(height_lr=16, width_lr=16,lr=1e-4,upscaling_factor=2,channels=3,colorspace = 'RGB')
-    #srcnn.load_weights(weights='../model/SRCNN_2X.h5')
+    srcnn.load_weights(weights='../model/SRCNN_2X.h5')
+
+    t = srcnn.predict(
+            lr_videopath='../out/walk_360x288.mp4', 
+            sr_videopath='../out/walk_720x576.mp4',
+            print_frequency=30,
+            crf=0
+    )
     
 
-    srcnn.train(
+    """ srcnn.train(
             epochs=10000,
             batch_size=128,
             steps_per_epoch=625,
@@ -245,5 +263,5 @@ if __name__ == "__main__":
             log_weight_path='../model/', 
             log_tensorboard_path='../logs/',
             log_test_path='../test/'
-    )
+    ) """
 

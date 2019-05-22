@@ -7,7 +7,6 @@ import cv2
 import glob
 import imageio
 from PIL import Image
-from scipy.misc import imresize
 from random import choice
 from keras.utils import Sequence
 import matplotlib.pyplot as plt

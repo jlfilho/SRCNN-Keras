@@ -54,7 +54,7 @@ class VideoRestore():
         img_sr = self.unscale_hr_imgs(img_sr)
         return img_sr
        
-    def write_srvideo(self, model=None,lr_videopath=None,sr_videopath=None,print_frequency=30,crf=15):
+    def write_srvideo(self, model=None,lr_videopath=None,sr_videopath=None,scale=None,print_frequency=30,crf=15):
         """Predict SR video given LR video """
         cap = cv2.VideoCapture(lr_videopath) 
         if cap.isOpened():
@@ -75,7 +75,7 @@ class VideoRestore():
             if ret:
                 frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
                 start = timer()
-                img_sr = self.sr_genarator(model,frame)
+                img_sr = self.sr_genarator(model,frame,scale=scale)
                 end = timer()
                 time_elapsed.append(end - start)
                 im = Image.fromarray(img_sr.astype(np.uint8))
@@ -93,7 +93,7 @@ class VideoRestore():
    
 
 
-    def write_sr_images(self,model, input_images, output_images):
+    def write_sr_images(self,model, input_images, output_images,scale):
       
         # Load the images to perform test on images
         imgs_lr, imgs_hr = self.load_batch(idx=0,img_paths=input_images, training=False)
@@ -123,11 +123,12 @@ class VideoRestore():
             #imageio.imwrite(output_images.split(".")[0]+"LR.png", img_lr)
         return time_elapsed
 
-    def sr_genarator(self,model,img_lr):
+    def sr_genarator(self,model,img_lr,scale):
         """Predict sr frame given a LR frame"""
         # Predict high-resolution version (add batch dimension to image)
+        img_lr = cv2.resize(img_lr,(img_lr.shape[1]*scale,img_lr.shape[0]*scale), interpolation = cv2.INTER_CUBIC)
         img_lr=self.scale_lr_imgs(img_lr)
-        img_sr = model.generator.predict(np.expand_dims(img_lr, 0))
+        img_sr = model.predict(np.expand_dims(img_lr, 0))
         # Remove batch dimension
         img_sr = img_sr.reshape(img_sr.shape[1], img_sr.shape[2], img_sr.shape[3])
         img_sr = self.unscale_hr_imgs(img_sr)
