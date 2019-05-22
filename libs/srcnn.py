@@ -15,11 +15,21 @@ from losses import psnr3 as psnr
 from losses import euclidean
 
 class SRCNN():
+    """
+        height_lr: height of the lr image
+        width_lr: width of the lr image 
+        channels: number of channel of the image
+        upscaling_factor= factor upscaling
+        lr = learning rate
+        training_mode: True or False
+        media_type: 'i' for image and 'v' for video
+        colorspace: 'RGB' or 'YCbCr'
+    """
     def __init__(self,
-                 height_lr=24, width_lr=24, channels=1,
+                 height_lr=24, width_lr=24, channels=3,
                  upscaling_factor=4, lr = 1e-3,
                  training_mode=True,
-                 media_type='i'
+                 media_type='i', colorspace = 'RGB'
                  ):
         self.media_type = media_type
 
@@ -37,38 +47,40 @@ class SRCNN():
 
         # Low-resolution and high-resolution shapes
         self.channels = channels
+        self.colorspace = colorspace
+
         self.shape_lr = (self.height_lr, self.width_lr, self.channels)
         self.shape_hr = (self.height_hr, self.width_hr, self.channels)
 
         self.loss = "mse"
         self.lr = lr
 
-        self.srcnn = self.build_srcnn()
-        self.compile_srcnn(self.srcnn)
+        self.model = self.build_model()
+        self.compile_model(self.model)
 
 
     def save_weights(self, filepath):
         """Save the networks weights"""
-        self.srcnn.save_weights(
+        self.model.save_weights(
             "{}_{}X.h5".format(filepath, self.upscaling_factor))
         
 
     def load_weights(self, weights=None, **kwargs):
         print(">> Loading weights...")
         if weights:
-            self.srcnn.load_weights(weights, **kwargs)
+            self.model.load_weights(weights, **kwargs)
         
     
-    def compile_srcnn(self, model):
+    def compile_model(self, model):
         """Compile the srcnn with appropriate optimizer"""
         
         model.compile(
             loss=self.loss,
-            optimizer=Adam(lr=self.lr,beta_1=0.9, beta_2=0.999), #SGD(lr=self.lr, momentum=0.9, decay=1e-6, nesterov=True), 
+            optimizer=SGD(lr=self.lr, momentum=0.9, decay=1e-6, nesterov=True), #Adam(lr=self.lr,beta_1=0.9, beta_2=0.999), 
             metrics=[psnr]
         )
 
-    def build_srcnn(self):
+    def build_model(self):
 
         inputs = Input(shape=(None, None, self.channels))
           
@@ -77,12 +89,12 @@ class SRCNN():
             padding = "valid", use_bias=True, name='conv1')(inputs)
         conv1 = ReLU()(conv1)
 
-        conv2 = Conv2D(filters= 32, kernel_size = (5,5), strides=1, 
+        conv2 = Conv2D(filters= 32, kernel_size = (1,1), strides=1, 
             kernel_initializer=RandomNormal(mean=0.0, stddev=0.001, seed=None),bias_initializer='zeros',
             padding = "valid", use_bias=True, name='conv2')(conv1)
         conv2 = ReLU()(conv2)
 
-        conv3 = Conv2D(filters= 1, kernel_size = (5,5), strides=1, 
+        conv3 = Conv2D(filters= self.channels, kernel_size = (5,5), strides=1, 
             kernel_initializer=RandomNormal(mean=0.0, stddev=0.001, seed=None),bias_initializer='zeros',
             padding = "valid", use_bias=True, name='conv3')(conv1)
         
@@ -100,7 +112,7 @@ class SRCNN():
             log_tensorboard_update_freq=10,
             workers=4,
             max_queue_size=5,
-            model_name='TSRGANSRCNN',
+            model_name='SRCNN',
             datapath_train='../../../videos_harmonic/MYANMAR_2160p/train/',
             datapath_validation='../../../videos_harmonic/MYANMAR_2160p/validation/',
             datapath_test='../../../videos_harmonic/MYANMAR_2160p/test/',
@@ -115,7 +127,9 @@ class SRCNN():
             self.height_hr, self.width_hr,
             self.upscaling_factor,
             crops_per_image,
-            self.media_type
+            self.media_type,
+            self.channels,
+            self.colorspace
         )
 
         validation_loader = None 
@@ -125,7 +139,9 @@ class SRCNN():
                 self.height_hr, self.width_hr,
                 self.upscaling_factor,
                 crops_per_image,
-                self.media_type
+                self.media_type,
+                self.channels,
+                self.colorspace
         )
 
         test_loader = None
@@ -135,7 +151,9 @@ class SRCNN():
                 self.height_hr, self.width_hr,
                 self.upscaling_factor,
                 1,
-                self.media_type
+                self.media_type,
+                self.channels,
+                self.colorspace
         )
 
         # Callback: tensorboard
@@ -156,13 +174,13 @@ class SRCNN():
         # Callback: Stop training when a monitored quantity has stopped improving
         earlystopping = EarlyStopping(
             monitor='val_loss', 
-            patience=30, verbose=1, 
+            patience=10000, verbose=1, 
             restore_best_weights=True )
         callbacks.append(earlystopping)
 
         # Callback: Reduce lr when a monitored quantity has stopped improving
         reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.5,
-                                    patience=20, min_lr=2*1e-6)
+                                    patience=300, min_lr=1e-6,verbose=1)
         callbacks.append(reduce_lr)
 
         # Callback: save weights after each epoch
@@ -177,17 +195,19 @@ class SRCNN():
         if datapath_test is not None:
             testplotting = LambdaCallback(
                 on_epoch_end=lambda epoch, logs: None if ((epoch+1) % print_frequency != 0 ) else plot_test_images(
-                    self.srcnn,
+                    self.model,
                     test_loader,
                     datapath_test,
                     log_test_path,
                     epoch+1,
-                    name=model_name))
+                    name=model_name,
+                    channels=self.channels,
+                    colorspace=self.colorspace))
         callbacks.append(testplotting)
 
         #callbacks.append(TQDMCallback())
 
-        self.srcnn.fit_generator(
+        self.model.fit_generator(
             train_loader,
             steps_per_epoch=steps_per_epoch,
             epochs=epochs,
@@ -204,17 +224,17 @@ if __name__ == "__main__":
 
     # Instantiate the TSRGAN object
     print(">> Creating the SRCNN network")
-    srcnn = SRCNN(height_lr=16, width_lr=16,lr=1e-5,upscaling_factor=2)
+    srcnn = SRCNN(height_lr=16, width_lr=16,lr=1e-4,upscaling_factor=2,channels=3,colorspace = 'RGB')
     #srcnn.load_weights(weights='../model/SRCNN_2X.h5')
     
 
     srcnn.train(
-            epochs=1000,
-            batch_size=32,
-            steps_per_epoch=200,
+            epochs=10000,
+            batch_size=128,
+            steps_per_epoch=625,
             steps_per_validation=10,
             crops_per_image=4,
-            print_frequency=1,
+            print_frequency=10,
             log_tensorboard_update_freq=10,
             workers=2,
             max_queue_size=11,
