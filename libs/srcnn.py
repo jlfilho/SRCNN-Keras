@@ -28,7 +28,7 @@
 
   <meta name="viewport" content="width=device-width">
   
-  <title>SRCNN-Keras/restore.py at 8c3e425b11eb66312f1603cfb0be260037c95479 · jlfilho/SRCNN-Keras</title>
+  <title>SRCNN-Keras/srcnn.py at 8c3e425b11eb66312f1603cfb0be260037c95479 · jlfilho/SRCNN-Keras</title>
     <meta name="description" content="Contribute to jlfilho/SRCNN-Keras development by creating an account on GitHub.">
     <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
   <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
@@ -38,10 +38,10 @@
     <meta property="og:image" content="https://avatars1.githubusercontent.com/u/14129827?s=400&amp;v=4" /><meta property="og:site_name" content="GitHub" /><meta property="og:type" content="object" /><meta property="og:title" content="jlfilho/SRCNN-Keras" /><meta property="og:url" content="https://github.com/jlfilho/SRCNN-Keras" /><meta property="og:description" content="Contribute to jlfilho/SRCNN-Keras development by creating an account on GitHub." />
 
   <link rel="assets" href="https://github.githubassets.com/">
-  <link rel="web-socket" href="wss://live.github.com/_sockets/VjI6NDA2MjA5MDE3OjA0ZDRlZjFiYjVmOTY5MDRkZTJhZDQ2MTM4ZmZhZGU3Y2EyYTkzNDEyNmMwNmM5N2ViOGViNDBhNWQ0NWYzNWI=--718870addff79ed404510c0434cc87a6878b4432">
+  <link rel="web-socket" href="wss://live.github.com/_sockets/VjI6NDA2MjA5MDE3OjQyZmMxNjNjNzJjZGJlZDhlZDRjMjBjNWY0YjI4NzEzMjAxNTAxNzgzYmFiZjEwZmJiNWVjNzM2MzJiODZkNzk=--ede7311fd5a22cc4fea118366be8d1fde216171e">
   <meta name="pjax-timeout" content="1000">
   <link rel="sudo-modal" href="/sessions/sudo_modal">
-  <meta name="request-id" content="DB6A:2A90:2742DA:427806:5CE61726" data-pjax-transient>
+  <meta name="request-id" content="DB6A:2A90:273DD7:4277D6:5CE61726" data-pjax-transient>
 
 
   
@@ -52,7 +52,7 @@
     <meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
     <meta name="google-site-verification" content="GXs5KoUUkNCoaAZn7wPN-t01Pywp9M3sEjnt_3_ZWPc">
 
-  <meta name="octolytics-host" content="collector.githubapp.com" /><meta name="octolytics-app-id" content="github" /><meta name="octolytics-event-url" content="https://collector.githubapp.com/github-external/browser_event" /><meta name="octolytics-dimension-request_id" content="DB6A:2A90:2742DA:427806:5CE61726" /><meta name="octolytics-dimension-region_edge" content="iad" /><meta name="octolytics-dimension-region_render" content="iad" /><meta name="octolytics-actor-id" content="14129827" /><meta name="octolytics-actor-login" content="jlfilho" /><meta name="octolytics-actor-hash" content="142dbbc8766c5769110867d09ce763cc0041a2272dcaa8a71e5963e6d9eca5a2" />
+  <meta name="octolytics-host" content="collector.githubapp.com" /><meta name="octolytics-app-id" content="github" /><meta name="octolytics-event-url" content="https://collector.githubapp.com/github-external/browser_event" /><meta name="octolytics-dimension-request_id" content="DB6A:2A90:273DD7:4277D6:5CE61726" /><meta name="octolytics-dimension-region_edge" content="iad" /><meta name="octolytics-dimension-region_render" content="iad" /><meta name="octolytics-actor-id" content="14129827" /><meta name="octolytics-actor-login" content="jlfilho" /><meta name="octolytics-actor-hash" content="142dbbc8766c5769110867d09ce763cc0041a2272dcaa8a71e5963e6d9eca5a2" />
 <meta name="analytics-location" content="/&lt;user-name&gt;/&lt;repo-name&gt;/blob/show" data-pjax-transient="true" />
 
 
@@ -71,7 +71,7 @@
     <meta name="user-login" content="jlfilho">
 
       <meta name="expected-hostname" content="github.com">
-    <meta name="js-proxy-site-detection-payload" content="ZTIzMzBlNzU0YjE3Y2M2YTZlZTJiYjZiM2I0MGJiZTg5NjFkMGViZjFjZTllYmYzYzdiOWZiZmY2Mzg0NGFlZXx7InJlbW90ZV9hZGRyZXNzIjoiMTM4LjE4NS4xNTMuMTUiLCJyZXF1ZXN0X2lkIjoiREI2QToyQTkwOjI3NDJEQTo0Mjc4MDY6NUNFNjE3MjYiLCJ0aW1lc3RhbXAiOjE1NTg1ODMwOTUsImhvc3QiOiJnaXRodWIuY29tIn0=">
+    <meta name="js-proxy-site-detection-payload" content="OGFlMjUyMjU3OWVkMDQ4YWE4MTk1OTRjNDQwYzk0ZDk2ZGZkMzdhNjZmMDE0YTk5NzE1ZDlhN2I5N2VjM2Y5N3x7InJlbW90ZV9hZGRyZXNzIjoiMTM4LjE4NS4xNTMuMTUiLCJyZXF1ZXN0X2lkIjoiREI2QToyQTkwOjI3M0RENzo0Mjc3RDY6NUNFNjE3MjYiLCJ0aW1lc3RhbXAiOjE1NTg1ODMwNzgsImhvc3QiOiJnaXRodWIuY29tIn0=">
 
     <meta name="enabled-features" content="UNIVERSE_BANNER,MARKETPLACE_INVOICED_BILLING,MARKETPLACE_SOCIAL_PROOF_CUSTOMERS,MARKETPLACE_TRENDING_SOCIAL_PROOF,MARKETPLACE_RECOMMENDATIONS,NOTIFY_ON_BLOCK,RELATED_ISSUES">
 
@@ -87,7 +87,7 @@
   <meta name="octolytics-dimension-user_id" content="14129827" /><meta name="octolytics-dimension-user_login" content="jlfilho" /><meta name="octolytics-dimension-repository_id" content="187704255" /><meta name="octolytics-dimension-repository_nwo" content="jlfilho/SRCNN-Keras" /><meta name="octolytics-dimension-repository_public" content="true" /><meta name="octolytics-dimension-repository_is_fork" content="false" /><meta name="octolytics-dimension-repository_network_root_id" content="187704255" /><meta name="octolytics-dimension-repository_network_root_nwo" content="jlfilho/SRCNN-Keras" /><meta name="octolytics-dimension-repository_explore_github_marketplace_ci_cta_shown" content="true" />
 
 
-    <link rel="canonical" href="https://github.com/jlfilho/SRCNN-Keras/blob/8c3e425b11eb66312f1603cfb0be260037c95479/libs/restore.py" data-pjax-transient>
+    <link rel="canonical" href="https://github.com/jlfilho/SRCNN-Keras/blob/8c3e425b11eb66312f1603cfb0be260037c95479/libs/srcnn.py" data-pjax-transient>
 
 
   <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
@@ -158,7 +158,7 @@
           aria-autocomplete="list"
           aria-controls="jump-to-results"
           aria-label="Search or jump to…"
-          data-jump-to-suggestions-path="/_graphql/GetSuggestedNavigationDestinations#csrf-token=ymIFwI8AjU20Ke/yaAb/0pcwkHWY2lxgKgXTXhcSKQBlPeKeJFZrmSMn3UuIZ6mXfNLwAtYI04ghDQhfvHLvcg=="
+          data-jump-to-suggestions-path="/_graphql/GetSuggestedNavigationDestinations#csrf-token=z04tu2RvKZ6bqpgxTui8xg2nxmHdWvBO695KaRaWJcpgEcrlzznPSgykqoiuieqD5kWmFpOIf6bg1pFovfbjuA=="
           spellcheck="false"
           autocomplete="off"
           >
@@ -308,7 +308,7 @@
       <img class="avatar" src="https://avatars2.githubusercontent.com/u/14129827?s=40&amp;v=4" width="20" height="20" alt="@jlfilho" />
       jlfilho
 </a>
-    <!-- '"` --><!-- </textarea></xmp> --></option></form><form action="/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="HcB2WvO/82Qepp+HRxJNxY+p10fAgRKSGd3Jen/MovugTKz8EHpzyt60f91+zx9nfOgSQ1jzstPod4K9jup+bw==" />
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form action="/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="WL/+8vKZlYGKM+rlH0OGRGJIYMzuFDyr5ymw+ZVHgablMyRUEVwVL0ohCr8mntTmkQmlyHZmnOoWg/s+ZGFdMg==" />
       <button type="submit" class="Header-link mr-0 mr-lg-3 py-2 py-lg-0 border-top border-lg-top-0 border-white-fade-15 d-lg-none btn-link d-block width-full text-left" data-ga-click="Header, sign out, icon:logout" style="padding-left: 2px;">
         <svg class="octicon octicon-sign-out v-align-middle" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9V7H8V5h4V3l4 3-4 3zm-2 3H6V3L2 1h8v3h1V1c0-.55-.45-1-1-1H1C.45 0 0 .45 0 1v11.38c0 .39.22.73.55.91L6 16.01V13h4c.55 0 1-.45 1-1V8h-1v4z"/></svg>
         Sign out
@@ -401,7 +401,7 @@
     border
   " data-team-hovercards-enabled>
   <details class="js-user-status-details details-reset details-overlay details-overlay-dark">
-    <summary class="btn-link btn-block link-gray no-underline js-toggle-user-status-edit toggle-user-status-edit " aria-haspopup="dialog" role="menuitem" data-hydro-click="{&quot;event_type&quot;:&quot;user_profile.click&quot;,&quot;payload&quot;:{&quot;profile_user_id&quot;:14129827,&quot;target&quot;:&quot;EDIT_USER_STATUS&quot;,&quot;user_id&quot;:14129827,&quot;client_id&quot;:&quot;2037373471.1558010801&quot;,&quot;originating_request_id&quot;:&quot;DB6A:2A90:2742DA:427806:5CE61726&quot;,&quot;originating_url&quot;:&quot;https://github.com/jlfilho/SRCNN-Keras/blob/8c3e425b11eb66312f1603cfb0be260037c95479/libs/restore.py&quot;,&quot;referrer&quot;:&quot;https://github.com/jlfilho/SRCNN-Keras/tree/8c3e425b11eb66312f1603cfb0be260037c95479/libs&quot;}}" data-hydro-click-hmac="b8cb5832085b0668ee51413e965e02575841062067bbbafb59f25a7eaefab211">
+    <summary class="btn-link btn-block link-gray no-underline js-toggle-user-status-edit toggle-user-status-edit " aria-haspopup="dialog" role="menuitem" data-hydro-click="{&quot;event_type&quot;:&quot;user_profile.click&quot;,&quot;payload&quot;:{&quot;profile_user_id&quot;:14129827,&quot;target&quot;:&quot;EDIT_USER_STATUS&quot;,&quot;user_id&quot;:14129827,&quot;client_id&quot;:&quot;2037373471.1558010801&quot;,&quot;originating_request_id&quot;:&quot;DB6A:2A90:273DD7:4277D6:5CE61726&quot;,&quot;originating_url&quot;:&quot;https://github.com/jlfilho/SRCNN-Keras/blob/8c3e425b11eb66312f1603cfb0be260037c95479/libs/srcnn.py&quot;,&quot;referrer&quot;:&quot;https://github.com/jlfilho/SRCNN-Keras/tree/8c3e425b11eb66312f1603cfb0be260037c95479/libs&quot;}}" data-hydro-click-hmac="05a37608ec9c118d64a8d1e7527667544d3185545298086de6beb9443ba5f2f6">
       <div class="d-flex">
         <div class="f6 lh-condensed user-status-header
           d-inline-block v-align-middle
@@ -427,7 +427,7 @@
         </div>
       </div>
 </summary>    <details-dialog class="details-dialog rounded-1 anim-fade-in fast Box Box--overlay" role="dialog" tabindex="-1">
-      <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="position-relative flex-auto js-user-status-form" action="/users/status?compact=1&amp;link_mentions=0&amp;truncate=1" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="put" /><input type="hidden" name="authenticity_token" value="LwWHVePH/+7n26TX2ne/h9+AGQaNQUo/WzRzZBZzCaaH39Kq5fiTupODfkQRlJVfrrto3K8p0w62QDyPA8qznA==" />
+      <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="position-relative flex-auto js-user-status-form" action="/users/status?compact=1&amp;link_mentions=0&amp;truncate=1" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="put" /><input type="hidden" name="authenticity_token" value="Y2CtYRsE59uEdGZzQi2mDmK1DVI/v4L7yVI4e/gVXA7LuvieHTuLj/AsvOCJzozWE458iB3XG8okJneQ7azmNA==" />
         <div class="Box-header bg-gray border-bottom p-3">
           <button class="Box-btn-octicon js-toggle-user-status-edit btn-octicon float-right" type="reset" aria-label="Close dialog" data-close-dialog>
             <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
@@ -547,17 +547,17 @@
       </li>
       <li class="dropdown-divider" role="none"></li>
         <li>
-          <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="in 30 minutes" value="2019-05-23T00:14:55-04:00">
+          <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="in 30 minutes" value="2019-05-23T00:14:38-04:00">
             in 30 minutes
           </button>
         </li>
         <li>
-          <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="in 1 hour" value="2019-05-23T00:44:55-04:00">
+          <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="in 1 hour" value="2019-05-23T00:44:38-04:00">
             in 1 hour
           </button>
         </li>
         <li>
-          <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="in 4 hours" value="2019-05-23T03:44:55-04:00">
+          <button type="button" class="btn-link dropdown-item ws-normal js-user-status-expire-button" title="in 4 hours" value="2019-05-23T03:44:38-04:00">
             in 4 hours
           </button>
         </li>
@@ -605,7 +605,7 @@
     <div role="none" class="dropdown-divider"></div>
     <a role="menuitem" class="dropdown-item" href="https://help.github.com" data-ga-click="Header, go to help, text:help">Help</a>
     <a role="menuitem" class="dropdown-item" href="/settings/profile" data-ga-click="Header, go to settings, icon:settings">Settings</a>
-    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="logout-form" action="/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="ssAlR9CuecQenxefjNwTiAOunzWHBbB/RLj5n0+JRgcPTP/hM2v5at6N98W1AUEq8O9aMR93ED61ErJYvq+akw==" />
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="logout-form" action="/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="KePju/+k37UftBL9JgVjaTLzj2WYREnD4u2k9l/aww2UbzkdHGFfG9+m8qcf2DHLwbJKYQA26YITR+8xrvwfmQ==" />
       
       <button type="submit" class="dropdown-item dropdown-signout" data-ga-click="Header, sign out, icon:logout" role="menuitem">
         Sign out
@@ -653,10 +653,10 @@
 
   <li>
     
-    <!-- '"` --><!-- </textarea></xmp> --></option></form><form data-remote="true" class="clearfix js-social-form js-social-container" action="/notifications/subscribe" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="TqTAvaNUJQBNrL0oon8lj/CEcZOZImJ3zuyH9IjWv+zsSgiHgsZiHnuixxxtereHZYzijlLFgvuJxjdCtw8sPw==" />      <input type="hidden" name="repository_id" value="187704255">
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form data-remote="true" class="clearfix js-social-form js-social-container" action="/notifications/subscribe" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="Tos+DIObNQB/mRzu6bmxy2ML6ziqGSbjvFdPx2KWx9bsZfY2oglyHkmXZtomvCPD9gN4JWH+xm/7ff9xXU9UBQ==" />      <input type="hidden" name="repository_id" value="187704255">
 
       <details class="details-reset details-overlay select-menu float-left">
-        <summary class="select-menu-button float-left btn btn-sm btn-with-count" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;WATCH_BUTTON&quot;,&quot;repository_id&quot;:187704255,&quot;client_id&quot;:&quot;2037373471.1558010801&quot;,&quot;originating_request_id&quot;:&quot;DB6A:2A90:2742DA:427806:5CE61726&quot;,&quot;originating_url&quot;:&quot;https://github.com/jlfilho/SRCNN-Keras/blob/8c3e425b11eb66312f1603cfb0be260037c95479/libs/restore.py&quot;,&quot;referrer&quot;:&quot;https://github.com/jlfilho/SRCNN-Keras/tree/8c3e425b11eb66312f1603cfb0be260037c95479/libs&quot;,&quot;user_id&quot;:14129827}}" data-hydro-click-hmac="9940fc01dbce5290fe7ec109a806edb2a4596773f327080f34de9a7a5a31ad24" data-ga-click="Repository, click Watch settings, action:blob#show">          <span data-menu-button>
+        <summary class="select-menu-button float-left btn btn-sm btn-with-count" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;WATCH_BUTTON&quot;,&quot;repository_id&quot;:187704255,&quot;client_id&quot;:&quot;2037373471.1558010801&quot;,&quot;originating_request_id&quot;:&quot;DB6A:2A90:273DD7:4277D6:5CE61726&quot;,&quot;originating_url&quot;:&quot;https://github.com/jlfilho/SRCNN-Keras/blob/8c3e425b11eb66312f1603cfb0be260037c95479/libs/srcnn.py&quot;,&quot;referrer&quot;:&quot;https://github.com/jlfilho/SRCNN-Keras/tree/8c3e425b11eb66312f1603cfb0be260037c95479/libs&quot;,&quot;user_id&quot;:14129827}}" data-hydro-click-hmac="5d56067b36787e981c37971a1d6ea0aaf543e3a2b4042bdae58c1c1c15c6f544" data-ga-click="Repository, click Watch settings, action:blob#show">          <span data-menu-button>
               <svg class="octicon octicon-eye v-align-text-bottom" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"/></svg>
               Unwatch
           </span>
@@ -727,18 +727,18 @@
 
   <li>
       <div class="js-toggler-container js-social-container starring-container ">
-    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="starred js-social-form" action="/jlfilho/SRCNN-Keras/unstar" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="x9WnV9cL8n1oxFcW13NawwN0DqeW/DPomTSjOvhzOSB7cUacY6vRDU+W2OXWrGt8/BJ5An6TWf3CrNijueysBg==" />
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="starred js-social-form" action="/jlfilho/SRCNN-Keras/unstar" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="0MrH7T43vV+OQneGkUWW2U4IlC/jLlDGZB6HwzKLS6VsbiYmipeeL6kQ+HWQmqdmsW7jigtBOtM/hvxacxTegw==" />
       <input type="hidden" name="context" value="repository"></input>
-      <button type="submit" class="btn btn-sm btn-with-count js-toggler-target" aria-label="Unstar this repository" title="Unstar jlfilho/SRCNN-Keras" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;UNSTAR_BUTTON&quot;,&quot;repository_id&quot;:187704255,&quot;client_id&quot;:&quot;2037373471.1558010801&quot;,&quot;originating_request_id&quot;:&quot;DB6A:2A90:2742DA:427806:5CE61726&quot;,&quot;originating_url&quot;:&quot;https://github.com/jlfilho/SRCNN-Keras/blob/8c3e425b11eb66312f1603cfb0be260037c95479/libs/restore.py&quot;,&quot;referrer&quot;:&quot;https://github.com/jlfilho/SRCNN-Keras/tree/8c3e425b11eb66312f1603cfb0be260037c95479/libs&quot;,&quot;user_id&quot;:14129827}}" data-hydro-click-hmac="ad3ca1b4810909e095089e887ee2348d3e66c1de71c594d60569fcbce345681c" data-ga-click="Repository, click unstar button, action:blob#show; text:Unstar">        <svg class="octicon octicon-star v-align-text-bottom" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"/></svg>
+      <button type="submit" class="btn btn-sm btn-with-count js-toggler-target" aria-label="Unstar this repository" title="Unstar jlfilho/SRCNN-Keras" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;UNSTAR_BUTTON&quot;,&quot;repository_id&quot;:187704255,&quot;client_id&quot;:&quot;2037373471.1558010801&quot;,&quot;originating_request_id&quot;:&quot;DB6A:2A90:273DD7:4277D6:5CE61726&quot;,&quot;originating_url&quot;:&quot;https://github.com/jlfilho/SRCNN-Keras/blob/8c3e425b11eb66312f1603cfb0be260037c95479/libs/srcnn.py&quot;,&quot;referrer&quot;:&quot;https://github.com/jlfilho/SRCNN-Keras/tree/8c3e425b11eb66312f1603cfb0be260037c95479/libs&quot;,&quot;user_id&quot;:14129827}}" data-hydro-click-hmac="c578e9f8bdbd1e9f811be40d60a72a91f51c017cf69d0ed0eb2d063f05a6f339" data-ga-click="Repository, click unstar button, action:blob#show; text:Unstar">        <svg class="octicon octicon-star v-align-text-bottom" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"/></svg>
         Unstar
 </button>        <a class="social-count js-social-count" href="/jlfilho/SRCNN-Keras/stargazers"
            aria-label="0 users starred this repository">
           0
         </a>
 </form>
-    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="unstarred js-social-form" action="/jlfilho/SRCNN-Keras/star" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="b/x5qdIk/+A5Th5B7R4HndR+efZpp8IHPCM8sSztYVlBw23pOp3vZjc3HUOHUlFOpJFYdhBHBc6P5QRmbxJQZA==" />
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="unstarred js-social-form" action="/jlfilho/SRCNN-Keras/star" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="nNHKYHXmcouIFHEYJUShlBGMQlPysgzYaV7CF+e+oLey7t4gnV9iDYZtchpPCPdHYWNj04tSyxHamPrApEGRig==" />
       <input type="hidden" name="context" value="repository"></input>
-      <button type="submit" class="btn btn-sm btn-with-count js-toggler-target" aria-label="Unstar this repository" title="Star jlfilho/SRCNN-Keras" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;STAR_BUTTON&quot;,&quot;repository_id&quot;:187704255,&quot;client_id&quot;:&quot;2037373471.1558010801&quot;,&quot;originating_request_id&quot;:&quot;DB6A:2A90:2742DA:427806:5CE61726&quot;,&quot;originating_url&quot;:&quot;https://github.com/jlfilho/SRCNN-Keras/blob/8c3e425b11eb66312f1603cfb0be260037c95479/libs/restore.py&quot;,&quot;referrer&quot;:&quot;https://github.com/jlfilho/SRCNN-Keras/tree/8c3e425b11eb66312f1603cfb0be260037c95479/libs&quot;,&quot;user_id&quot;:14129827}}" data-hydro-click-hmac="14952ea89e102960b066af61b3683c9b18f0896a42f876368c62911e36ac8d97" data-ga-click="Repository, click star button, action:blob#show; text:Star">        <svg class="octicon octicon-star v-align-text-bottom" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"/></svg>
+      <button type="submit" class="btn btn-sm btn-with-count js-toggler-target" aria-label="Unstar this repository" title="Star jlfilho/SRCNN-Keras" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;STAR_BUTTON&quot;,&quot;repository_id&quot;:187704255,&quot;client_id&quot;:&quot;2037373471.1558010801&quot;,&quot;originating_request_id&quot;:&quot;DB6A:2A90:273DD7:4277D6:5CE61726&quot;,&quot;originating_url&quot;:&quot;https://github.com/jlfilho/SRCNN-Keras/blob/8c3e425b11eb66312f1603cfb0be260037c95479/libs/srcnn.py&quot;,&quot;referrer&quot;:&quot;https://github.com/jlfilho/SRCNN-Keras/tree/8c3e425b11eb66312f1603cfb0be260037c95479/libs&quot;,&quot;user_id&quot;:14129827}}" data-hydro-click-hmac="8c04b774d90666377a9115e6c9627ad76fa0aaf86a7419be8361c3603fc5554a" data-ga-click="Repository, click star button, action:blob#show; text:Star">        <svg class="octicon octicon-star v-align-text-bottom" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"/></svg>
         Star
 </button>        <a class="social-count js-social-count" href="/jlfilho/SRCNN-Keras/stargazers"
            aria-label="0 users starred this repository">
@@ -883,9 +883,9 @@
 
 
   
-    <a class="d-none js-permalink-shortcut" data-hotkey="y" href="/jlfilho/SRCNN-Keras/blob/8c3e425b11eb66312f1603cfb0be260037c95479/libs/restore.py">Permalink</a>
+    <a class="d-none js-permalink-shortcut" data-hotkey="y" href="/jlfilho/SRCNN-Keras/blob/8c3e425b11eb66312f1603cfb0be260037c95479/libs/srcnn.py">Permalink</a>
 
-    <!-- blob contrib key: blob_contributors:v21:c9beac946a2a7cf86520c131c81cd4ba -->
+    <!-- blob contrib key: blob_contributors:v21:88cb4ad1d20aaca49a170795d2531930 -->
       
 
     <div class="d-flex flex-items-start mb-3 flex-column flex-md-row">
@@ -900,7 +900,7 @@
     <span class="css-truncate-target">8c3e425b11</span>
   </summary>
 
-  <details-menu class="select-menu-modal hx_rsm-modal position-absolute" style="z-index: 99;" src="/jlfilho/SRCNN-Keras/ref-list/8c3e425b11eb66312f1603cfb0be260037c95479/libs/restore.py?source_action=show&amp;source_controller=blob" preload>
+  <details-menu class="select-menu-modal hx_rsm-modal position-absolute" style="z-index: 99;" src="/jlfilho/SRCNN-Keras/ref-list/8c3e425b11eb66312f1603cfb0be260037c95479/libs/srcnn.py?source_action=show&amp;source_controller=blob" preload>
     <include-fragment class="select-menu-loading-overlay anim-pulse">
       <svg height="32" class="octicon octicon-octoface" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M14.7 5.34c.13-.32.55-1.59-.13-3.31 0 0-1.05-.33-3.44 1.3-1-.28-2.07-.32-3.13-.32s-2.13.04-3.13.32c-2.39-1.64-3.44-1.3-3.44-1.3-.68 1.72-.26 2.99-.13 3.31C.49 6.21 0 7.33 0 8.69 0 13.84 3.33 15 7.98 15S16 13.84 16 8.69c0-1.36-.49-2.48-1.3-3.35zM8 14.02c-3.3 0-5.98-.15-5.98-3.35 0-.76.38-1.48 1.02-2.07 1.07-.98 2.9-.46 4.96-.46 2.07 0 3.88-.52 4.96.46.65.59 1.02 1.3 1.02 2.07 0 3.19-2.68 3.35-5.98 3.35zM5.49 9.01c-.66 0-1.2.8-1.2 1.78s.54 1.79 1.2 1.79c.66 0 1.2-.8 1.2-1.79s-.54-1.78-1.2-1.78zm5.02 0c-.66 0-1.2.79-1.2 1.78s.54 1.79 1.2 1.79c.66 0 1.2-.8 1.2-1.79s-.53-1.78-1.2-1.78z"/></svg>
     </include-fragment>
@@ -914,13 +914,13 @@
                 data-hotkey="t">
             Find file
           </a>
-          <clipboard-copy value="libs/restore.py" class="btn btn-sm BtnGroup-item">
+          <clipboard-copy value="libs/srcnn.py" class="btn btn-sm BtnGroup-item">
             Copy path
           </clipboard-copy>
         </div>
       </span>
       <h2 id="blob-path" class="breadcrumb flex-auto min-width-0 text-normal flex-md-self-center ml-md-2 mr-md-3 my-2 my-md-0">
-        <span class="js-repo-root text-bold"><span class="js-path-segment"><a data-pjax="true" rel="nofollow" href="/jlfilho/SRCNN-Keras/tree/8c3e425b11eb66312f1603cfb0be260037c95479"><span>SRCNN-Keras</span></a></span></span><span class="separator">/</span><span class="js-path-segment"><a data-pjax="true" rel="nofollow" href="/jlfilho/SRCNN-Keras/tree/8c3e425b11eb66312f1603cfb0be260037c95479/libs"><span>libs</span></a></span><span class="separator">/</span><strong class="final-path">restore.py</strong>
+        <span class="js-repo-root text-bold"><span class="js-path-segment"><a data-pjax="true" rel="nofollow" href="/jlfilho/SRCNN-Keras/tree/8c3e425b11eb66312f1603cfb0be260037c95479"><span>SRCNN-Keras</span></a></span></span><span class="separator">/</span><span class="js-path-segment"><a data-pjax="true" rel="nofollow" href="/jlfilho/SRCNN-Keras/tree/8c3e425b11eb66312f1603cfb0be260037c95479/libs"><span>libs</span></a></span><span class="separator">/</span><strong class="final-path">srcnn.py</strong>
       </h2>
 
       <div class="BtnGroup flex-shrink-0 d-none d-md-inline-block">
@@ -930,7 +930,7 @@
               data-hotkey="t">
           Find file
         </a>
-        <clipboard-copy value="libs/restore.py" class="btn btn-sm BtnGroup-item">
+        <clipboard-copy value="libs/srcnn.py" class="btn btn-sm BtnGroup-item">
           Copy path
         </clipboard-copy>
       </div>
@@ -938,16 +938,45 @@
 
 
 
-    <include-fragment src="/jlfilho/SRCNN-Keras/contributors/8c3e425b11eb66312f1603cfb0be260037c95479/libs/restore.py" class="Box Box--condensed commit-loader">
-      <div class="Box-body bg-blue-light f6">
-        Fetching contributors&hellip;
+    
+  <div class="Box Box--condensed d-flex flex-column flex-shrink-0">
+      <div class="Box-body d-flex flex-justify-between bg-blue-light flex-column flex-md-row flex-items-start flex-md-items-center">
+        <span class="pr-md-4 f6">
+          <a rel="author" data-skip-pjax="true" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=14129827" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/jlfilho"><img class="avatar" src="https://avatars2.githubusercontent.com/u/14129827?s=40&amp;v=4" width="20" height="20" alt="@jlfilho" /></a>
+          <a class="text-bold link-gray-dark lh-default v-align-middle" rel="author" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=14129827" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/jlfilho">jlfilho</a>
+            <span class="lh-default v-align-middle">
+              <a data-pjax="true" title="option to restore video" class="link-gray" href="/jlfilho/SRCNN-Keras/commit/8c3e425b11eb66312f1603cfb0be260037c95479">option to restore video</a>
+            </span>
+        </span>
+        <span class="d-inline-block flex-shrink-0 v-align-bottom f6 mt-2 mt-md-0">
+          <a class="pr-2 text-mono link-gray" href="/jlfilho/SRCNN-Keras/commit/8c3e425b11eb66312f1603cfb0be260037c95479" data-pjax>8c3e425</a>
+          <relative-time datetime="2019-05-22T21:54:48Z">May 22, 2019</relative-time>
+        </span>
       </div>
 
-      <div class="Box-body d-flex flex-items-center" >
-          <img alt="" class="loader-loading mr-2" src="https://github.githubassets.com/images/spinners/octocat-spinner-32-EAF2F5.gif" width="16" height="16" />
-        <span class="text-red h6 loader-error">Cannot retrieve contributors at this time</span>
-      </div>
-</include-fragment>
+    <div class="Box-body d-flex flex-items-center flex-auto f6 border-bottom-0 flex-wrap" >
+      <details class="details-reset details-overlay details-overlay-dark lh-default text-gray-dark float-left mr-2" id="blob_contributors_box">
+        <summary class="btn-link" aria-haspopup="dialog">
+          <span><strong>1</strong> contributor</span>
+        </summary>
+        <details-dialog
+          class="Box Box--overlay d-flex flex-column anim-fade-in fast"
+          aria-label="Users who have contributed to this file"
+          src="/jlfilho/SRCNN-Keras/contributors/8c3e425b11eb66312f1603cfb0be260037c95479/libs/srcnn.py/list" preload>
+          <div class="Box-header">
+            <button class="Box-btn-octicon btn-octicon float-right" type="button" aria-label="Close dialog" data-close-dialog>
+              <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
+            </button>
+            <h3 class="Box-title">
+              Users who have contributed to this file
+            </h3>
+          </div>
+          <include-fragment class="octocat-spinner my-3" aria-label="Loading..."></include-fragment>
+        </details-dialog>
+      </details>
+    </div>
+  </div>
+
 
 
 
@@ -958,17 +987,17 @@
 <div class="Box-header py-2 d-flex flex-column flex-shrink-0 flex-md-row flex-md-items-center">
 
   <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
-      135 lines (115 sloc)
+      268 lines (227 sloc)
       <span class="file-info-divider"></span>
-    4.84 KB
+    9.14 KB
   </div>
 
   <div class="d-flex py-1 py-md-0 flex-auto flex-order-1 flex-md-order-2 flex-sm-grow-0 flex-justify-between">
 
     <div class="BtnGroup">
-      <a id="raw-url" class="btn btn-sm BtnGroup-item" href="/jlfilho/SRCNN-Keras/raw/8c3e425b11eb66312f1603cfb0be260037c95479/libs/restore.py">Raw</a>
-        <a class="btn btn-sm js-update-url-with-hash BtnGroup-item" data-hotkey="b" href="/jlfilho/SRCNN-Keras/blame/8c3e425b11eb66312f1603cfb0be260037c95479/libs/restore.py">Blame</a>
-      <a rel="nofollow" class="btn btn-sm BtnGroup-item" href="/jlfilho/SRCNN-Keras/commits/8c3e425b11eb66312f1603cfb0be260037c95479/libs/restore.py">History</a>
+      <a id="raw-url" class="btn btn-sm BtnGroup-item" href="/jlfilho/SRCNN-Keras/raw/8c3e425b11eb66312f1603cfb0be260037c95479/libs/srcnn.py">Raw</a>
+        <a class="btn btn-sm js-update-url-with-hash BtnGroup-item" data-hotkey="b" href="/jlfilho/SRCNN-Keras/blame/8c3e425b11eb66312f1603cfb0be260037c95479/libs/srcnn.py">Blame</a>
+      <a rel="nofollow" class="btn btn-sm BtnGroup-item" href="/jlfilho/SRCNN-Keras/commits/8c3e425b11eb66312f1603cfb0be260037c95479/libs/srcnn.py">History</a>
     </div>
 
 
@@ -993,46 +1022,43 @@
 <table class="highlight tab-size js-file-line-container" data-tab-size="8">
       <tr>
         <td id="L1" class="blob-num js-line-number" data-line-number="1"></td>
-        <td id="LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-k">import</span> cv2</td>
+        <td id="LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-k">import</span> os</td>
       </tr>
       <tr>
         <td id="L2" class="blob-num js-line-number" data-line-number="2"></td>
-        <td id="LC2" class="blob-code blob-code-inner js-file-line"><span class="pl-k">import</span> math</td>
+        <td id="LC2" class="blob-code blob-code-inner js-file-line"><span class="pl-k">import</span> tensorflow <span class="pl-k">as</span> tf</td>
       </tr>
       <tr>
         <td id="L3" class="blob-num js-line-number" data-line-number="3"></td>
-        <td id="LC3" class="blob-code blob-code-inner js-file-line"><span class="pl-k">import</span> imageio</td>
+        <td id="LC3" class="blob-code blob-code-inner js-file-line">os.environ[<span class="pl-s"><span class="pl-pds">&#39;</span>TF_CPP_MIN_LOG_LEVEL<span class="pl-pds">&#39;</span></span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">&#39;</span>3<span class="pl-pds">&#39;</span></span> </td>
       </tr>
       <tr>
         <td id="L4" class="blob-num js-line-number" data-line-number="4"></td>
-        <td id="LC4" class="blob-code blob-code-inner js-file-line"><span class="pl-k">import</span> numpy <span class="pl-k">as</span> np</td>
+        <td id="LC4" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> keras.layers <span class="pl-k">import</span> Input, Conv2D, MaxPooling2D</td>
       </tr>
       <tr>
         <td id="L5" class="blob-num js-line-number" data-line-number="5"></td>
-        <td id="LC5" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC5" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> keras.layers <span class="pl-k">import</span> ReLU</td>
       </tr>
       <tr>
         <td id="L6" class="blob-num js-line-number" data-line-number="6"></td>
-        <td id="LC6" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC6" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> keras.optimizers <span class="pl-k">import</span> <span class="pl-c1">SGD</span>, Adam</td>
       </tr>
       <tr>
         <td id="L7" class="blob-num js-line-number" data-line-number="7"></td>
-        <td id="LC7" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> <span class="pl-c1">PIL</span> <span class="pl-k">import</span> Image</td>
+        <td id="LC7" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> keras.models <span class="pl-k">import</span> Model</td>
       </tr>
       <tr>
         <td id="L8" class="blob-num js-line-number" data-line-number="8"></td>
-        <td id="LC8" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> subprocess <span class="pl-k">import</span> Popen, <span class="pl-c1">PIPE</span></td>
+        <td id="LC8" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> keras.callbacks <span class="pl-k">import</span> TensorBoard, ModelCheckpoint, LambdaCallback</td>
       </tr>
       <tr>
         <td id="L9" class="blob-num js-line-number" data-line-number="9"></td>
-        <td id="LC9" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> timeit <span class="pl-k">import</span> default_timer <span class="pl-k">as</span> timer</td>
+        <td id="LC9" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> keras.callbacks <span class="pl-k">import</span> ReduceLROnPlateau, EarlyStopping</td>
       </tr>
       <tr>
         <td id="L10" class="blob-num js-line-number" data-line-number="10"></td>
-        <td id="LC10" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC10" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> keras.initializers <span class="pl-k">import</span> RandomNormal</td>
       </tr>
       <tr>
         <td id="L11" class="blob-num js-line-number" data-line-number="11"></td>
@@ -1041,224 +1067,233 @@
       </tr>
       <tr>
         <td id="L12" class="blob-num js-line-number" data-line-number="12"></td>
-        <td id="LC12" class="blob-code blob-code-inner js-file-line"><span class="pl-k">class</span> <span class="pl-en">VideoRestore</span>():</td>
-      </tr>
-      <tr>
-        <td id="L13" class="blob-num js-line-number" data-line-number="13"></td>
-        <td id="LC13" class="blob-code blob-code-inner js-file-line">    <span class="pl-c"><span class="pl-c">#</span>def __init__(self):</span></td>
-      </tr>
-      <tr>
-        <td id="L14" class="blob-num js-line-number" data-line-number="14"></td>
-        <td id="LC14" class="blob-code blob-code-inner js-file-line">
+        <td id="LC12" class="blob-code blob-code-inner js-file-line">
 </td>
       </tr>
       <tr>
+        <td id="L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="LC13" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> util <span class="pl-k">import</span> DataLoader, plot_test_images</td>
+      </tr>
+      <tr>
+        <td id="L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="LC14" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> losses <span class="pl-k">import</span> psnr3 <span class="pl-k">as</span> psnr</td>
+      </tr>
+      <tr>
         <td id="L15" class="blob-num js-line-number" data-line-number="15"></td>
-        <td id="LC15" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">@</span><span class="pl-c1">staticmethod</span></td>
+        <td id="LC15" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> losses <span class="pl-k">import</span> euclidean</td>
       </tr>
       <tr>
         <td id="L16" class="blob-num js-line-number" data-line-number="16"></td>
-        <td id="LC16" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">def</span> <span class="pl-en">scale_lr_imgs</span>(<span class="pl-smi">imgs</span>):</td>
+        <td id="LC16" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> restore <span class="pl-k">import</span> VideoRestore</td>
       </tr>
       <tr>
         <td id="L17" class="blob-num js-line-number" data-line-number="17"></td>
-        <td id="LC17" class="blob-code blob-code-inner js-file-line">        <span class="pl-s"><span class="pl-pds">&quot;&quot;&quot;</span>Scale low-res images prior to passing to SRGAN<span class="pl-pds">&quot;&quot;&quot;</span></span></td>
+        <td id="LC17" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L18" class="blob-num js-line-number" data-line-number="18"></td>
-        <td id="LC18" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> imgs <span class="pl-k">/</span> <span class="pl-c1">255</span>.</td>
+        <td id="LC18" class="blob-code blob-code-inner js-file-line"><span class="pl-k">class</span> <span class="pl-en">SRCNN</span>():</td>
       </tr>
       <tr>
         <td id="L19" class="blob-num js-line-number" data-line-number="19"></td>
-        <td id="LC19" class="blob-code blob-code-inner js-file-line">        </td>
+        <td id="LC19" class="blob-code blob-code-inner js-file-line">    <span class="pl-s"><span class="pl-pds">&quot;&quot;&quot;</span></span></td>
       </tr>
       <tr>
         <td id="L20" class="blob-num js-line-number" data-line-number="20"></td>
-        <td id="LC20" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">@</span><span class="pl-c1">staticmethod</span></td>
+        <td id="LC20" class="blob-code blob-code-inner js-file-line"><span class="pl-s">        height_lr: height of the lr image</span></td>
       </tr>
       <tr>
         <td id="L21" class="blob-num js-line-number" data-line-number="21"></td>
-        <td id="LC21" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">def</span> <span class="pl-en">unscale_hr_imgs</span>(<span class="pl-smi">imgs</span>):</td>
+        <td id="LC21" class="blob-code blob-code-inner js-file-line"><span class="pl-s">        width_lr: width of the lr image </span></td>
       </tr>
       <tr>
         <td id="L22" class="blob-num js-line-number" data-line-number="22"></td>
-        <td id="LC22" class="blob-code blob-code-inner js-file-line">        <span class="pl-s"><span class="pl-pds">&quot;&quot;&quot;</span>Un-Scale high-res images<span class="pl-pds">&quot;&quot;&quot;</span></span></td>
+        <td id="LC22" class="blob-code blob-code-inner js-file-line"><span class="pl-s">        channels: number of channel of the image</span></td>
       </tr>
       <tr>
         <td id="L23" class="blob-num js-line-number" data-line-number="23"></td>
-        <td id="LC23" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"><span class="pl-c">#</span>return (imgs + 1.) * 127.5</span></td>
+        <td id="LC23" class="blob-code blob-code-inner js-file-line"><span class="pl-s">        upscaling_factor= factor upscaling</span></td>
       </tr>
       <tr>
         <td id="L24" class="blob-num js-line-number" data-line-number="24"></td>
-        <td id="LC24" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> imgs <span class="pl-k">*</span> <span class="pl-c1">255</span>.</td>
+        <td id="LC24" class="blob-code blob-code-inner js-file-line"><span class="pl-s">        lr = learning rate</span></td>
       </tr>
       <tr>
         <td id="L25" class="blob-num js-line-number" data-line-number="25"></td>
-        <td id="LC25" class="blob-code blob-code-inner js-file-line">    </td>
+        <td id="LC25" class="blob-code blob-code-inner js-file-line"><span class="pl-s">        training_mode: True or False</span></td>
       </tr>
       <tr>
         <td id="L26" class="blob-num js-line-number" data-line-number="26"></td>
-        <td id="LC26" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">def</span> <span class="pl-en">count_frames_manual</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>,<span class="pl-smi">cap</span>):</td>
+        <td id="LC26" class="blob-code blob-code-inner js-file-line"><span class="pl-s">        media_type: &#39;i&#39; for image and &#39;v&#39; for video</span></td>
       </tr>
       <tr>
         <td id="L27" class="blob-num js-line-number" data-line-number="27"></td>
-        <td id="LC27" class="blob-code blob-code-inner js-file-line">        count<span class="pl-k">=</span><span class="pl-c1">0</span></td>
+        <td id="LC27" class="blob-code blob-code-inner js-file-line"><span class="pl-s">        colorspace: &#39;RGB&#39; or &#39;YCbCr&#39;</span></td>
       </tr>
       <tr>
         <td id="L28" class="blob-num js-line-number" data-line-number="28"></td>
-        <td id="LC28" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">while</span>(cap.isOpened()):</td>
+        <td id="LC28" class="blob-code blob-code-inner js-file-line"><span class="pl-s">    <span class="pl-pds">&quot;&quot;&quot;</span></span></td>
       </tr>
       <tr>
         <td id="L29" class="blob-num js-line-number" data-line-number="29"></td>
-        <td id="LC29" class="blob-code blob-code-inner js-file-line">            ret, frame <span class="pl-k">=</span> cap.read()</td>
+        <td id="LC29" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">def</span> <span class="pl-c1">__init__</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>,</td>
       </tr>
       <tr>
         <td id="L30" class="blob-num js-line-number" data-line-number="30"></td>
-        <td id="LC30" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">if</span>(ret):</td>
+        <td id="LC30" class="blob-code blob-code-inner js-file-line">                 <span class="pl-smi">height_lr</span><span class="pl-k">=</span><span class="pl-c1">24</span>, <span class="pl-smi">width_lr</span><span class="pl-k">=</span><span class="pl-c1">24</span>, <span class="pl-smi">channels</span><span class="pl-k">=</span><span class="pl-c1">3</span>,</td>
       </tr>
       <tr>
         <td id="L31" class="blob-num js-line-number" data-line-number="31"></td>
-        <td id="LC31" class="blob-code blob-code-inner js-file-line">                count <span class="pl-k">+=</span><span class="pl-c1">1</span></td>
+        <td id="LC31" class="blob-code blob-code-inner js-file-line">                 <span class="pl-smi">upscaling_factor</span><span class="pl-k">=</span><span class="pl-c1">4</span>, <span class="pl-smi">lr</span> <span class="pl-k">=</span> <span class="pl-c1">1e-3</span>,</td>
       </tr>
       <tr>
         <td id="L32" class="blob-num js-line-number" data-line-number="32"></td>
-        <td id="LC32" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">else</span>:</td>
+        <td id="LC32" class="blob-code blob-code-inner js-file-line">                 <span class="pl-smi">training_mode</span><span class="pl-k">=</span><span class="pl-c1">True</span>,</td>
       </tr>
       <tr>
         <td id="L33" class="blob-num js-line-number" data-line-number="33"></td>
-        <td id="LC33" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">break</span></td>
+        <td id="LC33" class="blob-code blob-code-inner js-file-line">                 <span class="pl-smi">media_type</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">&#39;</span>i<span class="pl-pds">&#39;</span></span>, <span class="pl-smi">colorspace</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">&#39;</span>RGB<span class="pl-pds">&#39;</span></span></td>
       </tr>
       <tr>
         <td id="L34" class="blob-num js-line-number" data-line-number="34"></td>
-        <td id="LC34" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> count</td>
+        <td id="LC34" class="blob-code blob-code-inner js-file-line">                 ):</td>
       </tr>
       <tr>
         <td id="L35" class="blob-num js-line-number" data-line-number="35"></td>
-        <td id="LC35" class="blob-code blob-code-inner js-file-line">    </td>
+        <td id="LC35" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">self</span>.media_type <span class="pl-k">=</span> media_type</td>
       </tr>
       <tr>
         <td id="L36" class="blob-num js-line-number" data-line-number="36"></td>
-        <td id="LC36" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">def</span> <span class="pl-en">count_frames</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>,<span class="pl-smi">cap</span>):</td>
+        <td id="LC36" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L37" class="blob-num js-line-number" data-line-number="37"></td>
-        <td id="LC37" class="blob-code blob-code-inner js-file-line">        <span class="pl-s"><span class="pl-pds">&#39;&#39;&#39;</span>Count total frames in video<span class="pl-pds">&#39;&#39;&#39;</span></span></td>
+        <td id="LC37" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"><span class="pl-c">#</span> Low-resolution image dimensions</span></td>
       </tr>
       <tr>
         <td id="L38" class="blob-num js-line-number" data-line-number="38"></td>
-        <td id="LC38" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">try</span>:</td>
+        <td id="LC38" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">self</span>.height_lr <span class="pl-k">=</span> height_lr</td>
       </tr>
       <tr>
         <td id="L39" class="blob-num js-line-number" data-line-number="39"></td>
-        <td id="LC39" class="blob-code blob-code-inner js-file-line">            total <span class="pl-k">=</span> <span class="pl-c1">int</span>(cap.get(cv2.<span class="pl-c1">CAP_PROP_FRAME_COUNT</span>))</td>
+        <td id="LC39" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">self</span>.width_lr <span class="pl-k">=</span> width_lr</td>
       </tr>
       <tr>
         <td id="L40" class="blob-num js-line-number" data-line-number="40"></td>
-        <td id="LC40" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">except</span>:</td>
+        <td id="LC40" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L41" class="blob-num js-line-number" data-line-number="41"></td>
-        <td id="LC41" class="blob-code blob-code-inner js-file-line">            total <span class="pl-k">=</span> <span class="pl-c1">self</span>.count_frames_manual(cap)</td>
+        <td id="LC41" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"><span class="pl-c">#</span> High-resolution image dimensions</span></td>
       </tr>
       <tr>
         <td id="L42" class="blob-num js-line-number" data-line-number="42"></td>
-        <td id="LC42" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> total</td>
+        <td id="LC42" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> upscaling_factor <span class="pl-k">not</span> <span class="pl-k">in</span> [<span class="pl-c1">2</span>, <span class="pl-c1">4</span>, <span class="pl-c1">8</span>]:</td>
       </tr>
       <tr>
         <td id="L43" class="blob-num js-line-number" data-line-number="43"></td>
-        <td id="LC43" class="blob-code blob-code-inner js-file-line">    </td>
+        <td id="LC43" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">raise</span> <span class="pl-c1">ValueError</span>(</td>
       </tr>
       <tr>
         <td id="L44" class="blob-num js-line-number" data-line-number="44"></td>
-        <td id="LC44" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">def</span> <span class="pl-en">sr_genarator</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>,<span class="pl-smi">model</span>,<span class="pl-smi">img_lr</span>):</td>
+        <td id="LC44" class="blob-code blob-code-inner js-file-line">                <span class="pl-s"><span class="pl-pds">&#39;</span>Upscaling factor must be either 2, 4, or 8. You chose <span class="pl-c1">{}</span><span class="pl-pds">&#39;</span></span>.format(upscaling_factor))</td>
       </tr>
       <tr>
         <td id="L45" class="blob-num js-line-number" data-line-number="45"></td>
-        <td id="LC45" class="blob-code blob-code-inner js-file-line">        <span class="pl-s"><span class="pl-pds">&quot;&quot;&quot;</span>Predict sr frame given a LR frame<span class="pl-pds">&quot;&quot;&quot;</span></span></td>
+        <td id="LC45" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">self</span>.upscaling_factor <span class="pl-k">=</span> upscaling_factor</td>
       </tr>
       <tr>
         <td id="L46" class="blob-num js-line-number" data-line-number="46"></td>
-        <td id="LC46" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"><span class="pl-c">#</span> Predict high-resolution version (add batch dimension to image)</span></td>
+        <td id="LC46" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">self</span>.height_hr <span class="pl-k">=</span> <span class="pl-c1">int</span>(<span class="pl-c1">self</span>.height_lr <span class="pl-k">*</span> <span class="pl-c1">self</span>.upscaling_factor)</td>
       </tr>
       <tr>
         <td id="L47" class="blob-num js-line-number" data-line-number="47"></td>
-        <td id="LC47" class="blob-code blob-code-inner js-file-line">        img_sr <span class="pl-k">=</span> np.squeeze(</td>
+        <td id="LC47" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">self</span>.width_hr <span class="pl-k">=</span> <span class="pl-c1">int</span>(<span class="pl-c1">self</span>.width_lr <span class="pl-k">*</span> <span class="pl-c1">self</span>.upscaling_factor)</td>
       </tr>
       <tr>
         <td id="L48" class="blob-num js-line-number" data-line-number="48"></td>
-        <td id="LC48" class="blob-code blob-code-inner js-file-line">                    model.generator.predict(img_lr,</td>
+        <td id="LC48" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L49" class="blob-num js-line-number" data-line-number="49"></td>
-        <td id="LC49" class="blob-code blob-code-inner js-file-line">                        <span class="pl-v">batch_size</span><span class="pl-k">=</span><span class="pl-c1">1</span></td>
+        <td id="LC49" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"><span class="pl-c">#</span> Low-resolution and high-resolution shapes</span></td>
       </tr>
       <tr>
         <td id="L50" class="blob-num js-line-number" data-line-number="50"></td>
-        <td id="LC50" class="blob-code blob-code-inner js-file-line">                    ),</td>
+        <td id="LC50" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">self</span>.channels <span class="pl-k">=</span> channels</td>
       </tr>
       <tr>
         <td id="L51" class="blob-num js-line-number" data-line-number="51"></td>
-        <td id="LC51" class="blob-code blob-code-inner js-file-line">                    <span class="pl-v">axis</span><span class="pl-k">=</span><span class="pl-c1">0</span></td>
+        <td id="LC51" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">self</span>.colorspace <span class="pl-k">=</span> colorspace</td>
       </tr>
       <tr>
         <td id="L52" class="blob-num js-line-number" data-line-number="52"></td>
-        <td id="LC52" class="blob-code blob-code-inner js-file-line">                )</td>
+        <td id="LC52" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L53" class="blob-num js-line-number" data-line-number="53"></td>
-        <td id="LC53" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"><span class="pl-c">#</span> Remove batch dimension</span></td>
+        <td id="LC53" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">self</span>.shape_lr <span class="pl-k">=</span> (<span class="pl-c1">self</span>.height_lr, <span class="pl-c1">self</span>.width_lr, <span class="pl-c1">self</span>.channels)</td>
       </tr>
       <tr>
         <td id="L54" class="blob-num js-line-number" data-line-number="54"></td>
-        <td id="LC54" class="blob-code blob-code-inner js-file-line">        img_sr <span class="pl-k">=</span> <span class="pl-c1">self</span>.unscale_hr_imgs(img_sr)</td>
+        <td id="LC54" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">self</span>.shape_hr <span class="pl-k">=</span> (<span class="pl-c1">self</span>.height_hr, <span class="pl-c1">self</span>.width_hr, <span class="pl-c1">self</span>.channels)</td>
       </tr>
       <tr>
         <td id="L55" class="blob-num js-line-number" data-line-number="55"></td>
-        <td id="LC55" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> img_sr</td>
+        <td id="LC55" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L56" class="blob-num js-line-number" data-line-number="56"></td>
-        <td id="LC56" class="blob-code blob-code-inner js-file-line">       </td>
+        <td id="LC56" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">self</span>.loss <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">&quot;</span>mse<span class="pl-pds">&quot;</span></span></td>
       </tr>
       <tr>
         <td id="L57" class="blob-num js-line-number" data-line-number="57"></td>
-        <td id="LC57" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">def</span> <span class="pl-en">write_srvideo</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">model</span><span class="pl-k">=</span><span class="pl-c1">None</span>,<span class="pl-smi">lr_videopath</span><span class="pl-k">=</span><span class="pl-c1">None</span>,<span class="pl-smi">sr_videopath</span><span class="pl-k">=</span><span class="pl-c1">None</span>,<span class="pl-smi">scale</span><span class="pl-k">=</span><span class="pl-c1">None</span>,<span class="pl-smi">print_frequency</span><span class="pl-k">=</span><span class="pl-c1">30</span>,<span class="pl-smi">crf</span><span class="pl-k">=</span><span class="pl-c1">15</span>):</td>
+        <td id="LC57" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">self</span>.lr <span class="pl-k">=</span> lr</td>
       </tr>
       <tr>
         <td id="L58" class="blob-num js-line-number" data-line-number="58"></td>
-        <td id="LC58" class="blob-code blob-code-inner js-file-line">        <span class="pl-s"><span class="pl-pds">&quot;&quot;&quot;</span>Predict SR video given LR video <span class="pl-pds">&quot;&quot;&quot;</span></span></td>
+        <td id="LC58" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L59" class="blob-num js-line-number" data-line-number="59"></td>
-        <td id="LC59" class="blob-code blob-code-inner js-file-line">        cap <span class="pl-k">=</span> cv2.VideoCapture(lr_videopath) </td>
+        <td id="LC59" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">self</span>.model <span class="pl-k">=</span> <span class="pl-c1">self</span>.build_model()</td>
       </tr>
       <tr>
         <td id="L60" class="blob-num js-line-number" data-line-number="60"></td>
-        <td id="LC60" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> cap.isOpened():</td>
+        <td id="LC60" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">self</span>.compile_model(<span class="pl-c1">self</span>.model)</td>
       </tr>
       <tr>
         <td id="L61" class="blob-num js-line-number" data-line-number="61"></td>
-        <td id="LC61" class="blob-code blob-code-inner js-file-line">            fps <span class="pl-k">=</span> math.ceil(cap.get(cv2.<span class="pl-c1">CAP_PROP_FPS</span>))</td>
+        <td id="LC61" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L62" class="blob-num js-line-number" data-line-number="62"></td>
-        <td id="LC62" class="blob-code blob-code-inner js-file-line">            <span class="pl-c"><span class="pl-c">#</span> ffmpeg setup &#39;-qscale&#39;, &#39;5&#39;,</span></td>
+        <td id="LC62" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L63" class="blob-num js-line-number" data-line-number="63"></td>
-        <td id="LC63" class="blob-code blob-code-inner js-file-line">            p <span class="pl-k">=</span> Popen([<span class="pl-s"><span class="pl-pds">&#39;</span>ffmpeg<span class="pl-pds">&#39;</span></span>, <span class="pl-s"><span class="pl-pds">&#39;</span>-y<span class="pl-pds">&#39;</span></span>, <span class="pl-s"><span class="pl-pds">&#39;</span>-f<span class="pl-pds">&#39;</span></span>, <span class="pl-s"><span class="pl-pds">&#39;</span>image2pipe<span class="pl-pds">&#39;</span></span>, <span class="pl-s"><span class="pl-pds">&#39;</span>-vcodec<span class="pl-pds">&#39;</span></span>, <span class="pl-s"><span class="pl-pds">&#39;</span>mjpeg<span class="pl-pds">&#39;</span></span>, <span class="pl-s"><span class="pl-pds">&#39;</span>-r<span class="pl-pds">&#39;</span></span>, <span class="pl-c1">str</span>(fps), <span class="pl-s"><span class="pl-pds">&#39;</span>-i<span class="pl-pds">&#39;</span></span>, <span class="pl-s"><span class="pl-pds">&#39;</span>-<span class="pl-pds">&#39;</span></span>, <span class="pl-s"><span class="pl-pds">&#39;</span>-vcodec<span class="pl-pds">&#39;</span></span>, <span class="pl-s"><span class="pl-pds">&#39;</span>libx264<span class="pl-pds">&#39;</span></span>,<span class="pl-s"><span class="pl-pds">&#39;</span>-preset<span class="pl-pds">&#39;</span></span>, <span class="pl-s"><span class="pl-pds">&#39;</span>veryslow<span class="pl-pds">&#39;</span></span>, <span class="pl-s"><span class="pl-pds">&#39;</span>-crf<span class="pl-pds">&#39;</span></span>,<span class="pl-c1">str</span>(crf), <span class="pl-s"><span class="pl-pds">&#39;</span>-r<span class="pl-pds">&#39;</span></span>, <span class="pl-c1">str</span>(fps), sr_videopath], <span class="pl-v">stdin</span><span class="pl-k">=</span><span class="pl-c1">PIPE</span>)</td>
+        <td id="LC63" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">def</span> <span class="pl-en">save_weights</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">filepath</span>):</td>
       </tr>
       <tr>
         <td id="L64" class="blob-num js-line-number" data-line-number="64"></td>
-        <td id="LC64" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">else</span>:</td>
+        <td id="LC64" class="blob-code blob-code-inner js-file-line">        <span class="pl-s"><span class="pl-pds">&quot;&quot;&quot;</span>Save the networks weights<span class="pl-pds">&quot;&quot;&quot;</span></span></td>
       </tr>
       <tr>
         <td id="L65" class="blob-num js-line-number" data-line-number="65"></td>
-        <td id="LC65" class="blob-code blob-code-inner js-file-line">            <span class="pl-c1">print</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>Error to open low resolution video<span class="pl-pds">&quot;</span></span>)</td>
+        <td id="LC65" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">self</span>.model.save_weights(</td>
       </tr>
       <tr>
         <td id="L66" class="blob-num js-line-number" data-line-number="66"></td>
-        <td id="LC66" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">return</span> <span class="pl-k">-</span><span class="pl-c1">1</span></td>
+        <td id="LC66" class="blob-code blob-code-inner js-file-line">            <span class="pl-s"><span class="pl-pds">&quot;</span><span class="pl-c1">{}</span>_<span class="pl-c1">{}</span>X.h5<span class="pl-pds">&quot;</span></span>.format(filepath, <span class="pl-c1">self</span>.upscaling_factor))</td>
       </tr>
       <tr>
         <td id="L67" class="blob-num js-line-number" data-line-number="67"></td>
@@ -1266,279 +1301,824 @@
       </tr>
       <tr>
         <td id="L68" class="blob-num js-line-number" data-line-number="68"></td>
-        <td id="LC68" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"><span class="pl-c">#</span> Get video total frames</span></td>
+        <td id="LC68" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L69" class="blob-num js-line-number" data-line-number="69"></td>
-        <td id="LC69" class="blob-code blob-code-inner js-file-line">        t_frames <span class="pl-k">=</span> <span class="pl-c1">self</span>.count_frames(cap)    </td>
+        <td id="LC69" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">def</span> <span class="pl-en">load_weights</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">weights</span><span class="pl-k">=</span><span class="pl-c1">None</span>, <span class="pl-k">**</span><span class="pl-smi">kwargs</span>):</td>
       </tr>
       <tr>
         <td id="L70" class="blob-num js-line-number" data-line-number="70"></td>
-        <td id="LC70" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"><span class="pl-c">#</span>cria arquivo video hr if hr video is open</span></td>
+        <td id="LC70" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">print</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>&gt;&gt; Loading weights...<span class="pl-pds">&quot;</span></span>)</td>
       </tr>
       <tr>
         <td id="L71" class="blob-num js-line-number" data-line-number="71"></td>
-        <td id="LC71" class="blob-code blob-code-inner js-file-line">        count <span class="pl-k">=</span> <span class="pl-c1">0</span></td>
+        <td id="LC71" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> weights:</td>
       </tr>
       <tr>
         <td id="L72" class="blob-num js-line-number" data-line-number="72"></td>
-        <td id="LC72" class="blob-code blob-code-inner js-file-line">        time_elapsed <span class="pl-k">=</span> []</td>
+        <td id="LC72" class="blob-code blob-code-inner js-file-line">            <span class="pl-c1">self</span>.model.load_weights(weights, <span class="pl-k">**</span>kwargs)</td>
       </tr>
       <tr>
         <td id="L73" class="blob-num js-line-number" data-line-number="73"></td>
-        <td id="LC73" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">while</span> cap.isOpened():</td>
+        <td id="LC73" class="blob-code blob-code-inner js-file-line">        </td>
       </tr>
       <tr>
         <td id="L74" class="blob-num js-line-number" data-line-number="74"></td>
-        <td id="LC74" class="blob-code blob-code-inner js-file-line">            ret, frame <span class="pl-k">=</span> cap.read()</td>
+        <td id="LC74" class="blob-code blob-code-inner js-file-line">    </td>
       </tr>
       <tr>
         <td id="L75" class="blob-num js-line-number" data-line-number="75"></td>
-        <td id="LC75" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">if</span> ret:</td>
+        <td id="LC75" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">def</span> <span class="pl-en">compile_model</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">model</span>):</td>
       </tr>
       <tr>
         <td id="L76" class="blob-num js-line-number" data-line-number="76"></td>
-        <td id="LC76" class="blob-code blob-code-inner js-file-line">                frame <span class="pl-k">=</span> cv2.cvtColor(frame, cv2.<span class="pl-c1">COLOR_BGR2RGB</span>)</td>
+        <td id="LC76" class="blob-code blob-code-inner js-file-line">        <span class="pl-s"><span class="pl-pds">&quot;&quot;&quot;</span>Compile the srcnn with appropriate optimizer<span class="pl-pds">&quot;&quot;&quot;</span></span></td>
       </tr>
       <tr>
         <td id="L77" class="blob-num js-line-number" data-line-number="77"></td>
-        <td id="LC77" class="blob-code blob-code-inner js-file-line">                start <span class="pl-k">=</span> timer()</td>
+        <td id="LC77" class="blob-code blob-code-inner js-file-line">        </td>
       </tr>
       <tr>
         <td id="L78" class="blob-num js-line-number" data-line-number="78"></td>
-        <td id="LC78" class="blob-code blob-code-inner js-file-line">                img_sr <span class="pl-k">=</span> <span class="pl-c1">self</span>.sr_genarator(model,frame,<span class="pl-v">scale</span><span class="pl-k">=</span>scale)</td>
+        <td id="LC78" class="blob-code blob-code-inner js-file-line">        model.compile(</td>
       </tr>
       <tr>
         <td id="L79" class="blob-num js-line-number" data-line-number="79"></td>
-        <td id="LC79" class="blob-code blob-code-inner js-file-line">                end <span class="pl-k">=</span> timer()</td>
+        <td id="LC79" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">loss</span><span class="pl-k">=</span><span class="pl-c1">self</span>.loss,</td>
       </tr>
       <tr>
         <td id="L80" class="blob-num js-line-number" data-line-number="80"></td>
-        <td id="LC80" class="blob-code blob-code-inner js-file-line">                time_elapsed.append(end <span class="pl-k">-</span> start)</td>
+        <td id="LC80" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">optimizer</span><span class="pl-k">=</span>SGD(<span class="pl-v">lr</span><span class="pl-k">=</span><span class="pl-c1">self</span>.lr, <span class="pl-v">momentum</span><span class="pl-k">=</span><span class="pl-c1">0.9</span>, <span class="pl-v">decay</span><span class="pl-k">=</span><span class="pl-c1">1e-6</span>, <span class="pl-v">nesterov</span><span class="pl-k">=</span><span class="pl-c1">True</span>), <span class="pl-c"><span class="pl-c">#</span>Adam(lr=self.lr,beta_1=0.9, beta_2=0.999), </span></td>
       </tr>
       <tr>
         <td id="L81" class="blob-num js-line-number" data-line-number="81"></td>
-        <td id="LC81" class="blob-code blob-code-inner js-file-line">                im <span class="pl-k">=</span> Image.fromarray(img_sr.astype(np.uint8))</td>
+        <td id="LC81" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">metrics</span><span class="pl-k">=</span>[psnr]</td>
       </tr>
       <tr>
         <td id="L82" class="blob-num js-line-number" data-line-number="82"></td>
-        <td id="LC82" class="blob-code blob-code-inner js-file-line">                im.save(p.stdin, <span class="pl-s"><span class="pl-pds">&#39;</span>JPEG<span class="pl-pds">&#39;</span></span>)</td>
+        <td id="LC82" class="blob-code blob-code-inner js-file-line">        )</td>
       </tr>
       <tr>
         <td id="L83" class="blob-num js-line-number" data-line-number="83"></td>
-        <td id="LC83" class="blob-code blob-code-inner js-file-line">                count <span class="pl-k">+=</span><span class="pl-c1">1</span></td>
+        <td id="LC83" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L84" class="blob-num js-line-number" data-line-number="84"></td>
-        <td id="LC84" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">else</span>:</td>
+        <td id="LC84" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">def</span> <span class="pl-en">build_model</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>):</td>
       </tr>
       <tr>
         <td id="L85" class="blob-num js-line-number" data-line-number="85"></td>
-        <td id="LC85" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">break</span></td>
+        <td id="LC85" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L86" class="blob-num js-line-number" data-line-number="86"></td>
-        <td id="LC86" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">if</span>(count <span class="pl-k">%</span> print_frequency <span class="pl-k">==</span> <span class="pl-c1">0</span>):</td>
+        <td id="LC86" class="blob-code blob-code-inner js-file-line">        inputs <span class="pl-k">=</span> Input(<span class="pl-v">shape</span><span class="pl-k">=</span>(<span class="pl-c1">None</span>, <span class="pl-c1">None</span>, <span class="pl-c1">self</span>.channels))</td>
       </tr>
       <tr>
         <td id="L87" class="blob-num js-line-number" data-line-number="87"></td>
-        <td id="LC87" class="blob-code blob-code-inner js-file-line">                <span class="pl-c1">print</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>Time per Frame: <span class="pl-pds">&#39;</span></span><span class="pl-k">+</span><span class="pl-c1">str</span>(np.mean(time_elapsed))<span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">&#39;</span>s<span class="pl-pds">&#39;</span></span>)</td>
+        <td id="LC87" class="blob-code blob-code-inner js-file-line">          </td>
       </tr>
       <tr>
         <td id="L88" class="blob-num js-line-number" data-line-number="88"></td>
-        <td id="LC88" class="blob-code blob-code-inner js-file-line">                <span class="pl-c1">print</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>Estimated time: <span class="pl-pds">&#39;</span></span><span class="pl-k">+</span><span class="pl-c1">str</span>(np.mean(time_elapsed)<span class="pl-k">*</span>(t_frames<span class="pl-k">-</span>count)<span class="pl-k">/</span><span class="pl-c1">60</span>.)<span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">&#39;</span>min<span class="pl-pds">&#39;</span></span>)</td>
+        <td id="LC88" class="blob-code blob-code-inner js-file-line">        x <span class="pl-k">=</span> Conv2D(<span class="pl-v">filters</span><span class="pl-k">=</span> <span class="pl-c1">64</span>, <span class="pl-v">kernel_size</span> <span class="pl-k">=</span> (<span class="pl-c1">9</span>,<span class="pl-c1">9</span>), <span class="pl-v">strides</span><span class="pl-k">=</span><span class="pl-c1">1</span>, </td>
       </tr>
       <tr>
         <td id="L89" class="blob-num js-line-number" data-line-number="89"></td>
-        <td id="LC89" class="blob-code blob-code-inner js-file-line">        p.stdin.close()</td>
+        <td id="LC89" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">kernel_initializer</span><span class="pl-k">=</span>RandomNormal(<span class="pl-v">mean</span><span class="pl-k">=</span><span class="pl-c1">0.0</span>, <span class="pl-v">stddev</span><span class="pl-k">=</span><span class="pl-c1">0.001</span>, <span class="pl-v">seed</span><span class="pl-k">=</span><span class="pl-c1">None</span>),<span class="pl-v">bias_initializer</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">&#39;</span>zeros<span class="pl-pds">&#39;</span></span>,</td>
       </tr>
       <tr>
         <td id="L90" class="blob-num js-line-number" data-line-number="90"></td>
-        <td id="LC90" class="blob-code blob-code-inner js-file-line">        p.wait()</td>
+        <td id="LC90" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">padding</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">&quot;</span>valid<span class="pl-pds">&quot;</span></span>, <span class="pl-v">use_bias</span><span class="pl-k">=</span><span class="pl-c1">True</span>, <span class="pl-v">name</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">&#39;</span>conv1<span class="pl-pds">&#39;</span></span>)(inputs)</td>
       </tr>
       <tr>
         <td id="L91" class="blob-num js-line-number" data-line-number="91"></td>
-        <td id="LC91" class="blob-code blob-code-inner js-file-line">        cap.release()</td>
+        <td id="LC91" class="blob-code blob-code-inner js-file-line">        x <span class="pl-k">=</span> ReLU()(x)</td>
       </tr>
       <tr>
         <td id="L92" class="blob-num js-line-number" data-line-number="92"></td>
-        <td id="LC92" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> time_elapsed</td>
+        <td id="LC92" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L93" class="blob-num js-line-number" data-line-number="93"></td>
-        <td id="LC93" class="blob-code blob-code-inner js-file-line">   </td>
+        <td id="LC93" class="blob-code blob-code-inner js-file-line">        x <span class="pl-k">=</span> Conv2D(<span class="pl-v">filters</span><span class="pl-k">=</span> <span class="pl-c1">32</span>, <span class="pl-v">kernel_size</span> <span class="pl-k">=</span> (<span class="pl-c1">1</span>,<span class="pl-c1">1</span>), <span class="pl-v">strides</span><span class="pl-k">=</span><span class="pl-c1">1</span>, </td>
       </tr>
       <tr>
         <td id="L94" class="blob-num js-line-number" data-line-number="94"></td>
-        <td id="LC94" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC94" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">kernel_initializer</span><span class="pl-k">=</span>RandomNormal(<span class="pl-v">mean</span><span class="pl-k">=</span><span class="pl-c1">0.0</span>, <span class="pl-v">stddev</span><span class="pl-k">=</span><span class="pl-c1">0.001</span>, <span class="pl-v">seed</span><span class="pl-k">=</span><span class="pl-c1">None</span>),<span class="pl-v">bias_initializer</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">&#39;</span>zeros<span class="pl-pds">&#39;</span></span>,</td>
       </tr>
       <tr>
         <td id="L95" class="blob-num js-line-number" data-line-number="95"></td>
-        <td id="LC95" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC95" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">padding</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">&quot;</span>valid<span class="pl-pds">&quot;</span></span>, <span class="pl-v">use_bias</span><span class="pl-k">=</span><span class="pl-c1">True</span>, <span class="pl-v">name</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">&#39;</span>conv2<span class="pl-pds">&#39;</span></span>)(x)</td>
       </tr>
       <tr>
         <td id="L96" class="blob-num js-line-number" data-line-number="96"></td>
-        <td id="LC96" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">def</span> <span class="pl-en">write_sr_images</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>,<span class="pl-smi">model</span>, <span class="pl-smi">input_images</span>, <span class="pl-smi">output_images</span>,<span class="pl-smi">scale</span>):</td>
+        <td id="LC96" class="blob-code blob-code-inner js-file-line">        x <span class="pl-k">=</span> ReLU()(x)</td>
       </tr>
       <tr>
         <td id="L97" class="blob-num js-line-number" data-line-number="97"></td>
-        <td id="LC97" class="blob-code blob-code-inner js-file-line">      </td>
+        <td id="LC97" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L98" class="blob-num js-line-number" data-line-number="98"></td>
-        <td id="LC98" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"><span class="pl-c">#</span> Load the images to perform test on images</span></td>
+        <td id="LC98" class="blob-code blob-code-inner js-file-line">        x <span class="pl-k">=</span> Conv2D(<span class="pl-v">filters</span><span class="pl-k">=</span> <span class="pl-c1">self</span>.channels, <span class="pl-v">kernel_size</span> <span class="pl-k">=</span> (<span class="pl-c1">5</span>,<span class="pl-c1">5</span>), <span class="pl-v">strides</span><span class="pl-k">=</span><span class="pl-c1">1</span>, </td>
       </tr>
       <tr>
         <td id="L99" class="blob-num js-line-number" data-line-number="99"></td>
-        <td id="LC99" class="blob-code blob-code-inner js-file-line">        imgs_lr, imgs_hr <span class="pl-k">=</span> <span class="pl-c1">self</span>.load_batch(<span class="pl-v">idx</span><span class="pl-k">=</span><span class="pl-c1">0</span>,<span class="pl-v">img_paths</span><span class="pl-k">=</span>input_images, <span class="pl-v">training</span><span class="pl-k">=</span><span class="pl-c1">False</span>)</td>
+        <td id="LC99" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">kernel_initializer</span><span class="pl-k">=</span>RandomNormal(<span class="pl-v">mean</span><span class="pl-k">=</span><span class="pl-c1">0.0</span>, <span class="pl-v">stddev</span><span class="pl-k">=</span><span class="pl-c1">0.001</span>, <span class="pl-v">seed</span><span class="pl-k">=</span><span class="pl-c1">None</span>),<span class="pl-v">bias_initializer</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">&#39;</span>zeros<span class="pl-pds">&#39;</span></span>,</td>
       </tr>
       <tr>
         <td id="L100" class="blob-num js-line-number" data-line-number="100"></td>
-        <td id="LC100" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"><span class="pl-c">#</span> Scale color values</span></td>
+        <td id="LC100" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">padding</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">&quot;</span>valid<span class="pl-pds">&quot;</span></span>, <span class="pl-v">use_bias</span><span class="pl-k">=</span><span class="pl-c1">True</span>, <span class="pl-v">name</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">&#39;</span>conv3<span class="pl-pds">&#39;</span></span>)(x)</td>
       </tr>
       <tr>
         <td id="L101" class="blob-num js-line-number" data-line-number="101"></td>
-        <td id="LC101" class="blob-code blob-code-inner js-file-line">        imgs_hr <span class="pl-k">=</span> <span class="pl-c1">self</span>.unscale_hr_imgs(np.array(imgs_hr))</td>
+        <td id="LC101" class="blob-code blob-code-inner js-file-line">        </td>
       </tr>
       <tr>
         <td id="L102" class="blob-num js-line-number" data-line-number="102"></td>
-        <td id="LC102" class="blob-code blob-code-inner js-file-line">        imgs_lr <span class="pl-k">=</span> <span class="pl-c1">self</span>.unscale_lr_imgs(np.array(imgs_lr)) </td>
+        <td id="LC102" class="blob-code blob-code-inner js-file-line">        model <span class="pl-k">=</span> Model(<span class="pl-v">inputs</span><span class="pl-k">=</span>inputs, <span class="pl-v">outputs</span><span class="pl-k">=</span>x)</td>
       </tr>
       <tr>
         <td id="L103" class="blob-num js-line-number" data-line-number="103"></td>
-        <td id="LC103" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC103" class="blob-code blob-code-inner js-file-line">        model.summary()</td>
       </tr>
       <tr>
         <td id="L104" class="blob-num js-line-number" data-line-number="104"></td>
-        <td id="LC104" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"><span class="pl-c">#</span> Create super resolution images</span></td>
+        <td id="LC104" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> model</td>
       </tr>
       <tr>
         <td id="L105" class="blob-num js-line-number" data-line-number="105"></td>
-        <td id="LC105" class="blob-code blob-code-inner js-file-line">        imgs_sr <span class="pl-k">=</span> []</td>
-      </tr>
-      <tr>
-        <td id="L106" class="blob-num js-line-number" data-line-number="106"></td>
-        <td id="LC106" class="blob-code blob-code-inner js-file-line">        time_elapsed <span class="pl-k">=</span> []</td>
-      </tr>
-      <tr>
-        <td id="L107" class="blob-num js-line-number" data-line-number="107"></td>
-        <td id="LC107" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">for</span> img_lr,img_hr <span class="pl-k">in</span> <span class="pl-c1">zip</span>(imgs_lr,imgs_hr):</td>
-      </tr>
-      <tr>
-        <td id="L108" class="blob-num js-line-number" data-line-number="108"></td>
-        <td id="LC108" class="blob-code blob-code-inner js-file-line">            start <span class="pl-k">=</span> timer()</td>
-      </tr>
-      <tr>
-        <td id="L109" class="blob-num js-line-number" data-line-number="109"></td>
-        <td id="LC109" class="blob-code blob-code-inner js-file-line">            img_sr <span class="pl-k">=</span> <span class="pl-c1">self</span>.sr_genarator(model,img_lr)    </td>
-      </tr>
-      <tr>
-        <td id="L110" class="blob-num js-line-number" data-line-number="110"></td>
-        <td id="LC110" class="blob-code blob-code-inner js-file-line">            end <span class="pl-k">=</span> timer()</td>
-      </tr>
-      <tr>
-        <td id="L111" class="blob-num js-line-number" data-line-number="111"></td>
-        <td id="LC111" class="blob-code blob-code-inner js-file-line">            time_elapsed.append(end <span class="pl-k">-</span> start)   </td>
-      </tr>
-      <tr>
-        <td id="L112" class="blob-num js-line-number" data-line-number="112"></td>
-        <td id="LC112" class="blob-code blob-code-inner js-file-line">            </td>
-      </tr>
-      <tr>
-        <td id="L113" class="blob-num js-line-number" data-line-number="113"></td>
-        <td id="LC113" class="blob-code blob-code-inner js-file-line">            img_sr <span class="pl-k">=</span> Image.fromarray(img_sr.astype(np.uint8))</td>
-      </tr>
-      <tr>
-        <td id="L114" class="blob-num js-line-number" data-line-number="114"></td>
-        <td id="LC114" class="blob-code blob-code-inner js-file-line">            img_sr.save(output_images.split(<span class="pl-s"><span class="pl-pds">&quot;</span>.<span class="pl-pds">&quot;</span></span>)[<span class="pl-c1">0</span>]<span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">&quot;</span>SR.png<span class="pl-pds">&quot;</span></span>)</td>
-      </tr>
-      <tr>
-        <td id="L115" class="blob-num js-line-number" data-line-number="115"></td>
-        <td id="LC115" class="blob-code blob-code-inner js-file-line">            <span class="pl-c"><span class="pl-c">#</span>imageio.imwrite(output_images.split(&quot;.&quot;)[0]+&quot;SR.png&quot;, img_sr)</span></td>
-      </tr>
-      <tr>
-        <td id="L116" class="blob-num js-line-number" data-line-number="116"></td>
-        <td id="LC116" class="blob-code blob-code-inner js-file-line">            </td>
-      </tr>
-      <tr>
-        <td id="L117" class="blob-num js-line-number" data-line-number="117"></td>
-        <td id="LC117" class="blob-code blob-code-inner js-file-line">            img_hr <span class="pl-k">=</span> Image.fromarray(img_hr.astype(np.uint8))</td>
-      </tr>
-      <tr>
-        <td id="L118" class="blob-num js-line-number" data-line-number="118"></td>
-        <td id="LC118" class="blob-code blob-code-inner js-file-line">            img_hr.save(output_images.split(<span class="pl-s"><span class="pl-pds">&quot;</span>.<span class="pl-pds">&quot;</span></span>)[<span class="pl-c1">0</span>]<span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">&quot;</span>HR.png<span class="pl-pds">&quot;</span></span>)</td>
-      </tr>
-      <tr>
-        <td id="L119" class="blob-num js-line-number" data-line-number="119"></td>
-        <td id="LC119" class="blob-code blob-code-inner js-file-line">            <span class="pl-c"><span class="pl-c">#</span>imageio.imwrite(output_images.split(&quot;.&quot;)[0]+&quot;HR.png&quot;, img_hr)</span></td>
-      </tr>
-      <tr>
-        <td id="L120" class="blob-num js-line-number" data-line-number="120"></td>
-        <td id="LC120" class="blob-code blob-code-inner js-file-line">            </td>
-      </tr>
-      <tr>
-        <td id="L121" class="blob-num js-line-number" data-line-number="121"></td>
-        <td id="LC121" class="blob-code blob-code-inner js-file-line">            img_lr <span class="pl-k">=</span> Image.fromarray(img_lr.astype(np.uint8))</td>
-      </tr>
-      <tr>
-        <td id="L122" class="blob-num js-line-number" data-line-number="122"></td>
-        <td id="LC122" class="blob-code blob-code-inner js-file-line">            img_lr.save(output_images.split(<span class="pl-s"><span class="pl-pds">&quot;</span>.<span class="pl-pds">&quot;</span></span>)[<span class="pl-c1">0</span>]<span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">&quot;</span>LR.png<span class="pl-pds">&quot;</span></span>)</td>
-      </tr>
-      <tr>
-        <td id="L123" class="blob-num js-line-number" data-line-number="123"></td>
-        <td id="LC123" class="blob-code blob-code-inner js-file-line">            <span class="pl-c"><span class="pl-c">#</span>imageio.imwrite(output_images.split(&quot;.&quot;)[0]+&quot;LR.png&quot;, img_lr)</span></td>
-      </tr>
-      <tr>
-        <td id="L124" class="blob-num js-line-number" data-line-number="124"></td>
-        <td id="LC124" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> time_elapsed</td>
-      </tr>
-      <tr>
-        <td id="L125" class="blob-num js-line-number" data-line-number="125"></td>
-        <td id="LC125" class="blob-code blob-code-inner js-file-line">
+        <td id="LC105" class="blob-code blob-code-inner js-file-line">
 </td>
       </tr>
       <tr>
+        <td id="L106" class="blob-num js-line-number" data-line-number="106"></td>
+        <td id="LC106" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">def</span> <span class="pl-en">train</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>,</td>
+      </tr>
+      <tr>
+        <td id="L107" class="blob-num js-line-number" data-line-number="107"></td>
+        <td id="LC107" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">epochs</span><span class="pl-k">=</span><span class="pl-c1">50</span>,</td>
+      </tr>
+      <tr>
+        <td id="L108" class="blob-num js-line-number" data-line-number="108"></td>
+        <td id="LC108" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">batch_size</span><span class="pl-k">=</span><span class="pl-c1">8</span>,</td>
+      </tr>
+      <tr>
+        <td id="L109" class="blob-num js-line-number" data-line-number="109"></td>
+        <td id="LC109" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">steps_per_epoch</span><span class="pl-k">=</span><span class="pl-c1">5</span>,</td>
+      </tr>
+      <tr>
+        <td id="L110" class="blob-num js-line-number" data-line-number="110"></td>
+        <td id="LC110" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">steps_per_validation</span><span class="pl-k">=</span><span class="pl-c1">5</span>,</td>
+      </tr>
+      <tr>
+        <td id="L111" class="blob-num js-line-number" data-line-number="111"></td>
+        <td id="LC111" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">crops_per_image</span><span class="pl-k">=</span><span class="pl-c1">4</span>,</td>
+      </tr>
+      <tr>
+        <td id="L112" class="blob-num js-line-number" data-line-number="112"></td>
+        <td id="LC112" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">print_frequency</span><span class="pl-k">=</span><span class="pl-c1">5</span>,</td>
+      </tr>
+      <tr>
+        <td id="L113" class="blob-num js-line-number" data-line-number="113"></td>
+        <td id="LC113" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">log_tensorboard_update_freq</span><span class="pl-k">=</span><span class="pl-c1">10</span>,</td>
+      </tr>
+      <tr>
+        <td id="L114" class="blob-num js-line-number" data-line-number="114"></td>
+        <td id="LC114" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">workers</span><span class="pl-k">=</span><span class="pl-c1">4</span>,</td>
+      </tr>
+      <tr>
+        <td id="L115" class="blob-num js-line-number" data-line-number="115"></td>
+        <td id="LC115" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">max_queue_size</span><span class="pl-k">=</span><span class="pl-c1">5</span>,</td>
+      </tr>
+      <tr>
+        <td id="L116" class="blob-num js-line-number" data-line-number="116"></td>
+        <td id="LC116" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">model_name</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">&#39;</span>SRCNN<span class="pl-pds">&#39;</span></span>,</td>
+      </tr>
+      <tr>
+        <td id="L117" class="blob-num js-line-number" data-line-number="117"></td>
+        <td id="LC117" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">datapath_train</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">&#39;</span>../../../videos_harmonic/MYANMAR_2160p/train/<span class="pl-pds">&#39;</span></span>,</td>
+      </tr>
+      <tr>
+        <td id="L118" class="blob-num js-line-number" data-line-number="118"></td>
+        <td id="LC118" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">datapath_validation</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">&#39;</span>../../../videos_harmonic/MYANMAR_2160p/validation/<span class="pl-pds">&#39;</span></span>,</td>
+      </tr>
+      <tr>
+        <td id="L119" class="blob-num js-line-number" data-line-number="119"></td>
+        <td id="LC119" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">datapath_test</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">&#39;</span>../../../videos_harmonic/MYANMAR_2160p/test/<span class="pl-pds">&#39;</span></span>,</td>
+      </tr>
+      <tr>
+        <td id="L120" class="blob-num js-line-number" data-line-number="120"></td>
+        <td id="LC120" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">log_weight_path</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">&#39;</span>../model/<span class="pl-pds">&#39;</span></span>, </td>
+      </tr>
+      <tr>
+        <td id="L121" class="blob-num js-line-number" data-line-number="121"></td>
+        <td id="LC121" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">log_tensorboard_path</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">&#39;</span>../logs/<span class="pl-pds">&#39;</span></span>,</td>
+      </tr>
+      <tr>
+        <td id="L122" class="blob-num js-line-number" data-line-number="122"></td>
+        <td id="LC122" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">log_test_path</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">&#39;</span>../test/<span class="pl-pds">&#39;</span></span></td>
+      </tr>
+      <tr>
+        <td id="L123" class="blob-num js-line-number" data-line-number="123"></td>
+        <td id="LC123" class="blob-code blob-code-inner js-file-line">        ):</td>
+      </tr>
+      <tr>
+        <td id="L124" class="blob-num js-line-number" data-line-number="124"></td>
+        <td id="LC124" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L125" class="blob-num js-line-number" data-line-number="125"></td>
+        <td id="LC125" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"><span class="pl-c">#</span> Create data loaders</span></td>
+      </tr>
+      <tr>
         <td id="L126" class="blob-num js-line-number" data-line-number="126"></td>
-        <td id="LC126" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">def</span> <span class="pl-en">sr_genarator</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>,<span class="pl-smi">model</span>,<span class="pl-smi">img_lr</span>,<span class="pl-smi">scale</span>):</td>
+        <td id="LC126" class="blob-code blob-code-inner js-file-line">        train_loader <span class="pl-k">=</span> DataLoader(</td>
       </tr>
       <tr>
         <td id="L127" class="blob-num js-line-number" data-line-number="127"></td>
-        <td id="LC127" class="blob-code blob-code-inner js-file-line">        <span class="pl-s"><span class="pl-pds">&quot;&quot;&quot;</span>Predict sr frame given a LR frame<span class="pl-pds">&quot;&quot;&quot;</span></span></td>
+        <td id="LC127" class="blob-code blob-code-inner js-file-line">            datapath_train, batch_size,</td>
       </tr>
       <tr>
         <td id="L128" class="blob-num js-line-number" data-line-number="128"></td>
-        <td id="LC128" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"><span class="pl-c">#</span> Predict high-resolution version (add batch dimension to image)</span></td>
+        <td id="LC128" class="blob-code blob-code-inner js-file-line">            <span class="pl-c1">self</span>.height_hr, <span class="pl-c1">self</span>.width_hr,</td>
       </tr>
       <tr>
         <td id="L129" class="blob-num js-line-number" data-line-number="129"></td>
-        <td id="LC129" class="blob-code blob-code-inner js-file-line">        img_lr <span class="pl-k">=</span> cv2.resize(img_lr,(img_lr.shape[<span class="pl-c1">1</span>]<span class="pl-k">*</span>scale,img_lr.shape[<span class="pl-c1">0</span>]<span class="pl-k">*</span>scale), <span class="pl-v">interpolation</span> <span class="pl-k">=</span> cv2.<span class="pl-c1">INTER_CUBIC</span>)</td>
+        <td id="LC129" class="blob-code blob-code-inner js-file-line">            <span class="pl-c1">self</span>.upscaling_factor,</td>
       </tr>
       <tr>
         <td id="L130" class="blob-num js-line-number" data-line-number="130"></td>
-        <td id="LC130" class="blob-code blob-code-inner js-file-line">        img_lr<span class="pl-k">=</span><span class="pl-c1">self</span>.scale_lr_imgs(img_lr)</td>
+        <td id="LC130" class="blob-code blob-code-inner js-file-line">            crops_per_image,</td>
       </tr>
       <tr>
         <td id="L131" class="blob-num js-line-number" data-line-number="131"></td>
-        <td id="LC131" class="blob-code blob-code-inner js-file-line">        img_sr <span class="pl-k">=</span> model.predict(np.expand_dims(img_lr, <span class="pl-c1">0</span>))</td>
+        <td id="LC131" class="blob-code blob-code-inner js-file-line">            <span class="pl-c1">self</span>.media_type,</td>
       </tr>
       <tr>
         <td id="L132" class="blob-num js-line-number" data-line-number="132"></td>
-        <td id="LC132" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"><span class="pl-c">#</span> Remove batch dimension</span></td>
+        <td id="LC132" class="blob-code blob-code-inner js-file-line">            <span class="pl-c1">self</span>.channels,</td>
       </tr>
       <tr>
         <td id="L133" class="blob-num js-line-number" data-line-number="133"></td>
-        <td id="LC133" class="blob-code blob-code-inner js-file-line">        img_sr <span class="pl-k">=</span> img_sr.reshape(img_sr.shape[<span class="pl-c1">1</span>], img_sr.shape[<span class="pl-c1">2</span>], img_sr.shape[<span class="pl-c1">3</span>])</td>
+        <td id="LC133" class="blob-code blob-code-inner js-file-line">            <span class="pl-c1">self</span>.colorspace</td>
       </tr>
       <tr>
         <td id="L134" class="blob-num js-line-number" data-line-number="134"></td>
-        <td id="LC134" class="blob-code blob-code-inner js-file-line">        img_sr <span class="pl-k">=</span> <span class="pl-c1">self</span>.unscale_hr_imgs(img_sr)</td>
+        <td id="LC134" class="blob-code blob-code-inner js-file-line">        )</td>
       </tr>
       <tr>
         <td id="L135" class="blob-num js-line-number" data-line-number="135"></td>
-        <td id="LC135" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> img_sr</td>
+        <td id="LC135" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L136" class="blob-num js-line-number" data-line-number="136"></td>
+        <td id="LC136" class="blob-code blob-code-inner js-file-line">        validation_loader <span class="pl-k">=</span> <span class="pl-c1">None</span> </td>
+      </tr>
+      <tr>
+        <td id="L137" class="blob-num js-line-number" data-line-number="137"></td>
+        <td id="LC137" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> datapath_validation <span class="pl-k">is</span> <span class="pl-k">not</span> <span class="pl-c1">None</span>:</td>
+      </tr>
+      <tr>
+        <td id="L138" class="blob-num js-line-number" data-line-number="138"></td>
+        <td id="LC138" class="blob-code blob-code-inner js-file-line">            validation_loader <span class="pl-k">=</span> DataLoader(</td>
+      </tr>
+      <tr>
+        <td id="L139" class="blob-num js-line-number" data-line-number="139"></td>
+        <td id="LC139" class="blob-code blob-code-inner js-file-line">                datapath_validation, batch_size,</td>
+      </tr>
+      <tr>
+        <td id="L140" class="blob-num js-line-number" data-line-number="140"></td>
+        <td id="LC140" class="blob-code blob-code-inner js-file-line">                <span class="pl-c1">self</span>.height_hr, <span class="pl-c1">self</span>.width_hr,</td>
+      </tr>
+      <tr>
+        <td id="L141" class="blob-num js-line-number" data-line-number="141"></td>
+        <td id="LC141" class="blob-code blob-code-inner js-file-line">                <span class="pl-c1">self</span>.upscaling_factor,</td>
+      </tr>
+      <tr>
+        <td id="L142" class="blob-num js-line-number" data-line-number="142"></td>
+        <td id="LC142" class="blob-code blob-code-inner js-file-line">                crops_per_image,</td>
+      </tr>
+      <tr>
+        <td id="L143" class="blob-num js-line-number" data-line-number="143"></td>
+        <td id="LC143" class="blob-code blob-code-inner js-file-line">                <span class="pl-c1">self</span>.media_type,</td>
+      </tr>
+      <tr>
+        <td id="L144" class="blob-num js-line-number" data-line-number="144"></td>
+        <td id="LC144" class="blob-code blob-code-inner js-file-line">                <span class="pl-c1">self</span>.channels,</td>
+      </tr>
+      <tr>
+        <td id="L145" class="blob-num js-line-number" data-line-number="145"></td>
+        <td id="LC145" class="blob-code blob-code-inner js-file-line">                <span class="pl-c1">self</span>.colorspace</td>
+      </tr>
+      <tr>
+        <td id="L146" class="blob-num js-line-number" data-line-number="146"></td>
+        <td id="LC146" class="blob-code blob-code-inner js-file-line">        )</td>
+      </tr>
+      <tr>
+        <td id="L147" class="blob-num js-line-number" data-line-number="147"></td>
+        <td id="LC147" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L148" class="blob-num js-line-number" data-line-number="148"></td>
+        <td id="LC148" class="blob-code blob-code-inner js-file-line">        test_loader <span class="pl-k">=</span> <span class="pl-c1">None</span></td>
+      </tr>
+      <tr>
+        <td id="L149" class="blob-num js-line-number" data-line-number="149"></td>
+        <td id="LC149" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> datapath_test <span class="pl-k">is</span> <span class="pl-k">not</span> <span class="pl-c1">None</span>:</td>
+      </tr>
+      <tr>
+        <td id="L150" class="blob-num js-line-number" data-line-number="150"></td>
+        <td id="LC150" class="blob-code blob-code-inner js-file-line">            test_loader <span class="pl-k">=</span> DataLoader(</td>
+      </tr>
+      <tr>
+        <td id="L151" class="blob-num js-line-number" data-line-number="151"></td>
+        <td id="LC151" class="blob-code blob-code-inner js-file-line">                datapath_test, <span class="pl-c1">1</span>,</td>
+      </tr>
+      <tr>
+        <td id="L152" class="blob-num js-line-number" data-line-number="152"></td>
+        <td id="LC152" class="blob-code blob-code-inner js-file-line">                <span class="pl-c1">self</span>.height_hr, <span class="pl-c1">self</span>.width_hr,</td>
+      </tr>
+      <tr>
+        <td id="L153" class="blob-num js-line-number" data-line-number="153"></td>
+        <td id="LC153" class="blob-code blob-code-inner js-file-line">                <span class="pl-c1">self</span>.upscaling_factor,</td>
+      </tr>
+      <tr>
+        <td id="L154" class="blob-num js-line-number" data-line-number="154"></td>
+        <td id="LC154" class="blob-code blob-code-inner js-file-line">                <span class="pl-c1">1</span>,</td>
+      </tr>
+      <tr>
+        <td id="L155" class="blob-num js-line-number" data-line-number="155"></td>
+        <td id="LC155" class="blob-code blob-code-inner js-file-line">                <span class="pl-c1">self</span>.media_type,</td>
+      </tr>
+      <tr>
+        <td id="L156" class="blob-num js-line-number" data-line-number="156"></td>
+        <td id="LC156" class="blob-code blob-code-inner js-file-line">                <span class="pl-c1">self</span>.channels,</td>
+      </tr>
+      <tr>
+        <td id="L157" class="blob-num js-line-number" data-line-number="157"></td>
+        <td id="LC157" class="blob-code blob-code-inner js-file-line">                <span class="pl-c1">self</span>.colorspace</td>
+      </tr>
+      <tr>
+        <td id="L158" class="blob-num js-line-number" data-line-number="158"></td>
+        <td id="LC158" class="blob-code blob-code-inner js-file-line">        )</td>
+      </tr>
+      <tr>
+        <td id="L159" class="blob-num js-line-number" data-line-number="159"></td>
+        <td id="LC159" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L160" class="blob-num js-line-number" data-line-number="160"></td>
+        <td id="LC160" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"><span class="pl-c">#</span> Callback: tensorboard</span></td>
+      </tr>
+      <tr>
+        <td id="L161" class="blob-num js-line-number" data-line-number="161"></td>
+        <td id="LC161" class="blob-code blob-code-inner js-file-line">        callbacks <span class="pl-k">=</span> []</td>
+      </tr>
+      <tr>
+        <td id="L162" class="blob-num js-line-number" data-line-number="162"></td>
+        <td id="LC162" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> log_tensorboard_path:</td>
+      </tr>
+      <tr>
+        <td id="L163" class="blob-num js-line-number" data-line-number="163"></td>
+        <td id="LC163" class="blob-code blob-code-inner js-file-line">            tensorboard <span class="pl-k">=</span> TensorBoard(</td>
+      </tr>
+      <tr>
+        <td id="L164" class="blob-num js-line-number" data-line-number="164"></td>
+        <td id="LC164" class="blob-code blob-code-inner js-file-line">                <span class="pl-v">log_dir</span><span class="pl-k">=</span>os.path.join(log_tensorboard_path, model_name),</td>
+      </tr>
+      <tr>
+        <td id="L165" class="blob-num js-line-number" data-line-number="165"></td>
+        <td id="LC165" class="blob-code blob-code-inner js-file-line">                <span class="pl-v">histogram_freq</span><span class="pl-k">=</span><span class="pl-c1">0</span>,</td>
+      </tr>
+      <tr>
+        <td id="L166" class="blob-num js-line-number" data-line-number="166"></td>
+        <td id="LC166" class="blob-code blob-code-inner js-file-line">                <span class="pl-v">batch_size</span><span class="pl-k">=</span>batch_size,</td>
+      </tr>
+      <tr>
+        <td id="L167" class="blob-num js-line-number" data-line-number="167"></td>
+        <td id="LC167" class="blob-code blob-code-inner js-file-line">                <span class="pl-v">write_graph</span><span class="pl-k">=</span><span class="pl-c1">True</span>,</td>
+      </tr>
+      <tr>
+        <td id="L168" class="blob-num js-line-number" data-line-number="168"></td>
+        <td id="LC168" class="blob-code blob-code-inner js-file-line">                <span class="pl-v">write_grads</span><span class="pl-k">=</span><span class="pl-c1">True</span>,</td>
+      </tr>
+      <tr>
+        <td id="L169" class="blob-num js-line-number" data-line-number="169"></td>
+        <td id="LC169" class="blob-code blob-code-inner js-file-line">                <span class="pl-v">update_freq</span><span class="pl-k">=</span>log_tensorboard_update_freq</td>
+      </tr>
+      <tr>
+        <td id="L170" class="blob-num js-line-number" data-line-number="170"></td>
+        <td id="LC170" class="blob-code blob-code-inner js-file-line">            )</td>
+      </tr>
+      <tr>
+        <td id="L171" class="blob-num js-line-number" data-line-number="171"></td>
+        <td id="LC171" class="blob-code blob-code-inner js-file-line">            callbacks.append(tensorboard)</td>
+      </tr>
+      <tr>
+        <td id="L172" class="blob-num js-line-number" data-line-number="172"></td>
+        <td id="LC172" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">else</span>:</td>
+      </tr>
+      <tr>
+        <td id="L173" class="blob-num js-line-number" data-line-number="173"></td>
+        <td id="LC173" class="blob-code blob-code-inner js-file-line">            <span class="pl-c1">print</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>&gt;&gt; Not logging to tensorboard since no log_tensorboard_path is set<span class="pl-pds">&quot;</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="L174" class="blob-num js-line-number" data-line-number="174"></td>
+        <td id="LC174" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L175" class="blob-num js-line-number" data-line-number="175"></td>
+        <td id="LC175" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"><span class="pl-c">#</span> Callback: Stop training when a monitored quantity has stopped improving</span></td>
+      </tr>
+      <tr>
+        <td id="L176" class="blob-num js-line-number" data-line-number="176"></td>
+        <td id="LC176" class="blob-code blob-code-inner js-file-line">        earlystopping <span class="pl-k">=</span> EarlyStopping(</td>
+      </tr>
+      <tr>
+        <td id="L177" class="blob-num js-line-number" data-line-number="177"></td>
+        <td id="LC177" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">monitor</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">&#39;</span>val_loss<span class="pl-pds">&#39;</span></span>, </td>
+      </tr>
+      <tr>
+        <td id="L178" class="blob-num js-line-number" data-line-number="178"></td>
+        <td id="LC178" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">patience</span><span class="pl-k">=</span><span class="pl-c1">6000</span>, <span class="pl-v">verbose</span><span class="pl-k">=</span><span class="pl-c1">1</span>, </td>
+      </tr>
+      <tr>
+        <td id="L179" class="blob-num js-line-number" data-line-number="179"></td>
+        <td id="LC179" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">restore_best_weights</span><span class="pl-k">=</span><span class="pl-c1">True</span> )</td>
+      </tr>
+      <tr>
+        <td id="L180" class="blob-num js-line-number" data-line-number="180"></td>
+        <td id="LC180" class="blob-code blob-code-inner js-file-line">        callbacks.append(earlystopping)</td>
+      </tr>
+      <tr>
+        <td id="L181" class="blob-num js-line-number" data-line-number="181"></td>
+        <td id="LC181" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L182" class="blob-num js-line-number" data-line-number="182"></td>
+        <td id="LC182" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"><span class="pl-c">#</span> Callback: Reduce lr when a monitored quantity has stopped improving</span></td>
+      </tr>
+      <tr>
+        <td id="L183" class="blob-num js-line-number" data-line-number="183"></td>
+        <td id="LC183" class="blob-code blob-code-inner js-file-line">        reduce_lr <span class="pl-k">=</span> ReduceLROnPlateau(<span class="pl-v">monitor</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">&#39;</span>val_loss<span class="pl-pds">&#39;</span></span>, <span class="pl-v">factor</span><span class="pl-k">=</span><span class="pl-c1">1e-1</span>,</td>
+      </tr>
+      <tr>
+        <td id="L184" class="blob-num js-line-number" data-line-number="184"></td>
+        <td id="LC184" class="blob-code blob-code-inner js-file-line">                                    <span class="pl-v">patience</span><span class="pl-k">=</span><span class="pl-c1">5000</span>, <span class="pl-v">min_lr</span><span class="pl-k">=</span><span class="pl-c1">1e-6</span>,<span class="pl-v">verbose</span><span class="pl-k">=</span><span class="pl-c1">1</span>)</td>
+      </tr>
+      <tr>
+        <td id="L185" class="blob-num js-line-number" data-line-number="185"></td>
+        <td id="LC185" class="blob-code blob-code-inner js-file-line">        callbacks.append(reduce_lr)</td>
+      </tr>
+      <tr>
+        <td id="L186" class="blob-num js-line-number" data-line-number="186"></td>
+        <td id="LC186" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L187" class="blob-num js-line-number" data-line-number="187"></td>
+        <td id="LC187" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"><span class="pl-c">#</span> Callback: save weights after each epoch</span></td>
+      </tr>
+      <tr>
+        <td id="L188" class="blob-num js-line-number" data-line-number="188"></td>
+        <td id="LC188" class="blob-code blob-code-inner js-file-line">        modelcheckpoint <span class="pl-k">=</span> ModelCheckpoint(</td>
+      </tr>
+      <tr>
+        <td id="L189" class="blob-num js-line-number" data-line-number="189"></td>
+        <td id="LC189" class="blob-code blob-code-inner js-file-line">            os.path.join(log_weight_path, model_name <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">&#39;</span>_<span class="pl-c1">{}</span>X.h5<span class="pl-pds">&#39;</span></span>.format(<span class="pl-c1">self</span>.upscaling_factor)), </td>
+      </tr>
+      <tr>
+        <td id="L190" class="blob-num js-line-number" data-line-number="190"></td>
+        <td id="LC190" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">monitor</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">&#39;</span>val_loss<span class="pl-pds">&#39;</span></span>, </td>
+      </tr>
+      <tr>
+        <td id="L191" class="blob-num js-line-number" data-line-number="191"></td>
+        <td id="LC191" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">save_best_only</span><span class="pl-k">=</span><span class="pl-c1">True</span>, </td>
+      </tr>
+      <tr>
+        <td id="L192" class="blob-num js-line-number" data-line-number="192"></td>
+        <td id="LC192" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">save_weights_only</span><span class="pl-k">=</span><span class="pl-c1">True</span>)</td>
+      </tr>
+      <tr>
+        <td id="L193" class="blob-num js-line-number" data-line-number="193"></td>
+        <td id="LC193" class="blob-code blob-code-inner js-file-line">        callbacks.append(modelcheckpoint)</td>
+      </tr>
+      <tr>
+        <td id="L194" class="blob-num js-line-number" data-line-number="194"></td>
+        <td id="LC194" class="blob-code blob-code-inner js-file-line">  </td>
+      </tr>
+      <tr>
+        <td id="L195" class="blob-num js-line-number" data-line-number="195"></td>
+        <td id="LC195" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"><span class="pl-c">#</span> Callback: test images plotting</span></td>
+      </tr>
+      <tr>
+        <td id="L196" class="blob-num js-line-number" data-line-number="196"></td>
+        <td id="LC196" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> datapath_test <span class="pl-k">is</span> <span class="pl-k">not</span> <span class="pl-c1">None</span>:</td>
+      </tr>
+      <tr>
+        <td id="L197" class="blob-num js-line-number" data-line-number="197"></td>
+        <td id="LC197" class="blob-code blob-code-inner js-file-line">            testplotting <span class="pl-k">=</span> LambdaCallback(</td>
+      </tr>
+      <tr>
+        <td id="L198" class="blob-num js-line-number" data-line-number="198"></td>
+        <td id="LC198" class="blob-code blob-code-inner js-file-line">                <span class="pl-v">on_epoch_end</span><span class="pl-k">=</span><span class="pl-k">lambda</span> <span class="pl-smi">epoch</span>, <span class="pl-smi">logs</span>: <span class="pl-c1">None</span> <span class="pl-k">if</span> ((epoch<span class="pl-k">+</span><span class="pl-c1">1</span>) <span class="pl-k">%</span> print_frequency <span class="pl-k">!=</span> <span class="pl-c1">0</span> ) <span class="pl-k">else</span> plot_test_images(</td>
+      </tr>
+      <tr>
+        <td id="L199" class="blob-num js-line-number" data-line-number="199"></td>
+        <td id="LC199" class="blob-code blob-code-inner js-file-line">                    <span class="pl-c1">self</span>.model,</td>
+      </tr>
+      <tr>
+        <td id="L200" class="blob-num js-line-number" data-line-number="200"></td>
+        <td id="LC200" class="blob-code blob-code-inner js-file-line">                    test_loader,</td>
+      </tr>
+      <tr>
+        <td id="L201" class="blob-num js-line-number" data-line-number="201"></td>
+        <td id="LC201" class="blob-code blob-code-inner js-file-line">                    datapath_test,</td>
+      </tr>
+      <tr>
+        <td id="L202" class="blob-num js-line-number" data-line-number="202"></td>
+        <td id="LC202" class="blob-code blob-code-inner js-file-line">                    log_test_path,</td>
+      </tr>
+      <tr>
+        <td id="L203" class="blob-num js-line-number" data-line-number="203"></td>
+        <td id="LC203" class="blob-code blob-code-inner js-file-line">                    epoch<span class="pl-k">+</span><span class="pl-c1">1</span>,</td>
+      </tr>
+      <tr>
+        <td id="L204" class="blob-num js-line-number" data-line-number="204"></td>
+        <td id="LC204" class="blob-code blob-code-inner js-file-line">                    <span class="pl-v">name</span><span class="pl-k">=</span>model_name,</td>
+      </tr>
+      <tr>
+        <td id="L205" class="blob-num js-line-number" data-line-number="205"></td>
+        <td id="LC205" class="blob-code blob-code-inner js-file-line">                    <span class="pl-v">channels</span><span class="pl-k">=</span><span class="pl-c1">self</span>.channels,</td>
+      </tr>
+      <tr>
+        <td id="L206" class="blob-num js-line-number" data-line-number="206"></td>
+        <td id="LC206" class="blob-code blob-code-inner js-file-line">                    <span class="pl-v">colorspace</span><span class="pl-k">=</span><span class="pl-c1">self</span>.colorspace))</td>
+      </tr>
+      <tr>
+        <td id="L207" class="blob-num js-line-number" data-line-number="207"></td>
+        <td id="LC207" class="blob-code blob-code-inner js-file-line">        callbacks.append(testplotting)</td>
+      </tr>
+      <tr>
+        <td id="L208" class="blob-num js-line-number" data-line-number="208"></td>
+        <td id="LC208" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L209" class="blob-num js-line-number" data-line-number="209"></td>
+        <td id="LC209" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"><span class="pl-c">#</span>callbacks.append(TQDMCallback())</span></td>
+      </tr>
+      <tr>
+        <td id="L210" class="blob-num js-line-number" data-line-number="210"></td>
+        <td id="LC210" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L211" class="blob-num js-line-number" data-line-number="211"></td>
+        <td id="LC211" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">self</span>.model.fit_generator(</td>
+      </tr>
+      <tr>
+        <td id="L212" class="blob-num js-line-number" data-line-number="212"></td>
+        <td id="LC212" class="blob-code blob-code-inner js-file-line">            train_loader,</td>
+      </tr>
+      <tr>
+        <td id="L213" class="blob-num js-line-number" data-line-number="213"></td>
+        <td id="LC213" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">steps_per_epoch</span><span class="pl-k">=</span>steps_per_epoch,</td>
+      </tr>
+      <tr>
+        <td id="L214" class="blob-num js-line-number" data-line-number="214"></td>
+        <td id="LC214" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">epochs</span><span class="pl-k">=</span>epochs,</td>
+      </tr>
+      <tr>
+        <td id="L215" class="blob-num js-line-number" data-line-number="215"></td>
+        <td id="LC215" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">validation_data</span><span class="pl-k">=</span>validation_loader,</td>
+      </tr>
+      <tr>
+        <td id="L216" class="blob-num js-line-number" data-line-number="216"></td>
+        <td id="LC216" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">validation_steps</span><span class="pl-k">=</span>steps_per_validation,</td>
+      </tr>
+      <tr>
+        <td id="L217" class="blob-num js-line-number" data-line-number="217"></td>
+        <td id="LC217" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">callbacks</span><span class="pl-k">=</span>callbacks,</td>
+      </tr>
+      <tr>
+        <td id="L218" class="blob-num js-line-number" data-line-number="218"></td>
+        <td id="LC218" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">shuffle</span><span class="pl-k">=</span><span class="pl-c1">True</span>,</td>
+      </tr>
+      <tr>
+        <td id="L219" class="blob-num js-line-number" data-line-number="219"></td>
+        <td id="LC219" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">use_multiprocessing</span><span class="pl-k">=</span>workers<span class="pl-k">&gt;</span><span class="pl-c1">1</span>,</td>
+      </tr>
+      <tr>
+        <td id="L220" class="blob-num js-line-number" data-line-number="220"></td>
+        <td id="LC220" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">workers</span><span class="pl-k">=</span>workers</td>
+      </tr>
+      <tr>
+        <td id="L221" class="blob-num js-line-number" data-line-number="221"></td>
+        <td id="LC221" class="blob-code blob-code-inner js-file-line">        )</td>
+      </tr>
+      <tr>
+        <td id="L222" class="blob-num js-line-number" data-line-number="222"></td>
+        <td id="LC222" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L223" class="blob-num js-line-number" data-line-number="223"></td>
+        <td id="LC223" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">def</span> <span class="pl-en">predict</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>,</td>
+      </tr>
+      <tr>
+        <td id="L224" class="blob-num js-line-number" data-line-number="224"></td>
+        <td id="LC224" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">lr_videopath</span><span class="pl-k">=</span><span class="pl-c1">None</span>,</td>
+      </tr>
+      <tr>
+        <td id="L225" class="blob-num js-line-number" data-line-number="225"></td>
+        <td id="LC225" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">sr_videopath</span><span class="pl-k">=</span><span class="pl-c1">None</span>,</td>
+      </tr>
+      <tr>
+        <td id="L226" class="blob-num js-line-number" data-line-number="226"></td>
+        <td id="LC226" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">print_frequency</span><span class="pl-k">=</span><span class="pl-c1">30</span>,</td>
+      </tr>
+      <tr>
+        <td id="L227" class="blob-num js-line-number" data-line-number="227"></td>
+        <td id="LC227" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">crf</span><span class="pl-k">=</span><span class="pl-c1">15</span></td>
+      </tr>
+      <tr>
+        <td id="L228" class="blob-num js-line-number" data-line-number="228"></td>
+        <td id="LC228" class="blob-code blob-code-inner js-file-line">        ):</td>
+      </tr>
+      <tr>
+        <td id="L229" class="blob-num js-line-number" data-line-number="229"></td>
+        <td id="LC229" class="blob-code blob-code-inner js-file-line">        r <span class="pl-k">=</span> VideoRestore()</td>
+      </tr>
+      <tr>
+        <td id="L230" class="blob-num js-line-number" data-line-number="230"></td>
+        <td id="LC230" class="blob-code blob-code-inner js-file-line">        time_elapsed <span class="pl-k">=</span> r.write_srvideo(<span class="pl-c1">self</span>.model,lr_videopath,sr_videopath,<span class="pl-c1">self</span>.upscaling_factor,<span class="pl-v">print_frequency</span><span class="pl-k">=</span>print_frequency,<span class="pl-v">crf</span><span class="pl-k">=</span>crf)</td>
+      </tr>
+      <tr>
+        <td id="L231" class="blob-num js-line-number" data-line-number="231"></td>
+        <td id="LC231" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> time_elapsed</td>
+      </tr>
+      <tr>
+        <td id="L232" class="blob-num js-line-number" data-line-number="232"></td>
+        <td id="LC232" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L233" class="blob-num js-line-number" data-line-number="233"></td>
+        <td id="LC233" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Run the SRCNN network</span></td>
+      </tr>
+      <tr>
+        <td id="L234" class="blob-num js-line-number" data-line-number="234"></td>
+        <td id="LC234" class="blob-code blob-code-inner js-file-line"><span class="pl-k">if</span> <span class="pl-c1">__name__</span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">&quot;</span>__main__<span class="pl-pds">&quot;</span></span>:</td>
+      </tr>
+      <tr>
+        <td id="L235" class="blob-num js-line-number" data-line-number="235"></td>
+        <td id="LC235" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L236" class="blob-num js-line-number" data-line-number="236"></td>
+        <td id="LC236" class="blob-code blob-code-inner js-file-line">    <span class="pl-c"><span class="pl-c">#</span> Instantiate the TSRGAN object</span></td>
+      </tr>
+      <tr>
+        <td id="L237" class="blob-num js-line-number" data-line-number="237"></td>
+        <td id="LC237" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">print</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>&gt;&gt; Creating the SRCNN network<span class="pl-pds">&quot;</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="L238" class="blob-num js-line-number" data-line-number="238"></td>
+        <td id="LC238" class="blob-code blob-code-inner js-file-line">    srcnn <span class="pl-k">=</span> SRCNN(<span class="pl-v">height_lr</span><span class="pl-k">=</span><span class="pl-c1">16</span>, <span class="pl-v">width_lr</span><span class="pl-k">=</span><span class="pl-c1">16</span>,<span class="pl-v">lr</span><span class="pl-k">=</span><span class="pl-c1">1e-4</span>,<span class="pl-v">upscaling_factor</span><span class="pl-k">=</span><span class="pl-c1">2</span>,<span class="pl-v">channels</span><span class="pl-k">=</span><span class="pl-c1">3</span>,<span class="pl-v">colorspace</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">&#39;</span>RGB<span class="pl-pds">&#39;</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="L239" class="blob-num js-line-number" data-line-number="239"></td>
+        <td id="LC239" class="blob-code blob-code-inner js-file-line">    srcnn.load_weights(<span class="pl-v">weights</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">&#39;</span>../model/SRCNN_2X.h5<span class="pl-pds">&#39;</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="L240" class="blob-num js-line-number" data-line-number="240"></td>
+        <td id="LC240" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L241" class="blob-num js-line-number" data-line-number="241"></td>
+        <td id="LC241" class="blob-code blob-code-inner js-file-line">    t <span class="pl-k">=</span> srcnn.predict(</td>
+      </tr>
+      <tr>
+        <td id="L242" class="blob-num js-line-number" data-line-number="242"></td>
+        <td id="LC242" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">lr_videopath</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">&#39;</span>../out/walk_360x288.mp4<span class="pl-pds">&#39;</span></span>, </td>
+      </tr>
+      <tr>
+        <td id="L243" class="blob-num js-line-number" data-line-number="243"></td>
+        <td id="LC243" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">sr_videopath</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">&#39;</span>../out/walk_720x576.mp4<span class="pl-pds">&#39;</span></span>,</td>
+      </tr>
+      <tr>
+        <td id="L244" class="blob-num js-line-number" data-line-number="244"></td>
+        <td id="LC244" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">print_frequency</span><span class="pl-k">=</span><span class="pl-c1">30</span>,</td>
+      </tr>
+      <tr>
+        <td id="L245" class="blob-num js-line-number" data-line-number="245"></td>
+        <td id="LC245" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">crf</span><span class="pl-k">=</span><span class="pl-c1">0</span></td>
+      </tr>
+      <tr>
+        <td id="L246" class="blob-num js-line-number" data-line-number="246"></td>
+        <td id="LC246" class="blob-code blob-code-inner js-file-line">    )</td>
+      </tr>
+      <tr>
+        <td id="L247" class="blob-num js-line-number" data-line-number="247"></td>
+        <td id="LC247" class="blob-code blob-code-inner js-file-line">    </td>
+      </tr>
+      <tr>
+        <td id="L248" class="blob-num js-line-number" data-line-number="248"></td>
+        <td id="LC248" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L249" class="blob-num js-line-number" data-line-number="249"></td>
+        <td id="LC249" class="blob-code blob-code-inner js-file-line">    <span class="pl-s"><span class="pl-pds">&quot;&quot;&quot;</span> srcnn.train(</span></td>
+      </tr>
+      <tr>
+        <td id="L250" class="blob-num js-line-number" data-line-number="250"></td>
+        <td id="LC250" class="blob-code blob-code-inner js-file-line"><span class="pl-s">            epochs=10000,</span></td>
+      </tr>
+      <tr>
+        <td id="L251" class="blob-num js-line-number" data-line-number="251"></td>
+        <td id="LC251" class="blob-code blob-code-inner js-file-line"><span class="pl-s">            batch_size=128,</span></td>
+      </tr>
+      <tr>
+        <td id="L252" class="blob-num js-line-number" data-line-number="252"></td>
+        <td id="LC252" class="blob-code blob-code-inner js-file-line"><span class="pl-s">            steps_per_epoch=625,</span></td>
+      </tr>
+      <tr>
+        <td id="L253" class="blob-num js-line-number" data-line-number="253"></td>
+        <td id="LC253" class="blob-code blob-code-inner js-file-line"><span class="pl-s">            steps_per_validation=10,</span></td>
+      </tr>
+      <tr>
+        <td id="L254" class="blob-num js-line-number" data-line-number="254"></td>
+        <td id="LC254" class="blob-code blob-code-inner js-file-line"><span class="pl-s">            crops_per_image=4,</span></td>
+      </tr>
+      <tr>
+        <td id="L255" class="blob-num js-line-number" data-line-number="255"></td>
+        <td id="LC255" class="blob-code blob-code-inner js-file-line"><span class="pl-s">            print_frequency=30,</span></td>
+      </tr>
+      <tr>
+        <td id="L256" class="blob-num js-line-number" data-line-number="256"></td>
+        <td id="LC256" class="blob-code blob-code-inner js-file-line"><span class="pl-s">            log_tensorboard_update_freq=10,</span></td>
+      </tr>
+      <tr>
+        <td id="L257" class="blob-num js-line-number" data-line-number="257"></td>
+        <td id="LC257" class="blob-code blob-code-inner js-file-line"><span class="pl-s">            workers=2,</span></td>
+      </tr>
+      <tr>
+        <td id="L258" class="blob-num js-line-number" data-line-number="258"></td>
+        <td id="LC258" class="blob-code blob-code-inner js-file-line"><span class="pl-s">            max_queue_size=11,</span></td>
+      </tr>
+      <tr>
+        <td id="L259" class="blob-num js-line-number" data-line-number="259"></td>
+        <td id="LC259" class="blob-code blob-code-inner js-file-line"><span class="pl-s">            model_name=&#39;SRCNN&#39;,</span></td>
+      </tr>
+      <tr>
+        <td id="L260" class="blob-num js-line-number" data-line-number="260"></td>
+        <td id="LC260" class="blob-code blob-code-inner js-file-line"><span class="pl-s">            datapath_train=&#39;../../data/data_large/&#39;, </span></td>
+      </tr>
+      <tr>
+        <td id="L261" class="blob-num js-line-number" data-line-number="261"></td>
+        <td id="LC261" class="blob-code blob-code-inner js-file-line"><span class="pl-s">            datapath_validation=&#39;../../data/val_large&#39;, </span></td>
+      </tr>
+      <tr>
+        <td id="L262" class="blob-num js-line-number" data-line-number="262"></td>
+        <td id="LC262" class="blob-code blob-code-inner js-file-line"><span class="pl-s">            datapath_test=&#39;../../data/Set5_full/&#39;,</span></td>
+      </tr>
+      <tr>
+        <td id="L263" class="blob-num js-line-number" data-line-number="263"></td>
+        <td id="LC263" class="blob-code blob-code-inner js-file-line"><span class="pl-s">            log_weight_path=&#39;../model/&#39;, </span></td>
+      </tr>
+      <tr>
+        <td id="L264" class="blob-num js-line-number" data-line-number="264"></td>
+        <td id="LC264" class="blob-code blob-code-inner js-file-line"><span class="pl-s">            log_tensorboard_path=&#39;../logs/&#39;,</span></td>
+      </tr>
+      <tr>
+        <td id="L265" class="blob-num js-line-number" data-line-number="265"></td>
+        <td id="LC265" class="blob-code blob-code-inner js-file-line"><span class="pl-s">            log_test_path=&#39;../test/&#39;</span></td>
+      </tr>
+      <tr>
+        <td id="L266" class="blob-num js-line-number" data-line-number="266"></td>
+        <td id="LC266" class="blob-code blob-code-inner js-file-line"><span class="pl-s">    ) <span class="pl-pds">&quot;&quot;&quot;</span></span></td>
+      </tr>
+      <tr>
+        <td id="L267" class="blob-num js-line-number" data-line-number="267"></td>
+        <td id="LC267" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
 </table>
 
@@ -1550,7 +2130,7 @@
       <ul class="BlobToolbar-dropdown dropdown-menu dropdown-menu-se mt-2" style="width:185px">
         <li><clipboard-copy role="menuitem" class="dropdown-item" id="js-copy-lines" style="cursor:pointer;" data-original-text="Copy lines">Copy lines</clipboard-copy></li>
         <li><clipboard-copy role="menuitem" class="dropdown-item" id="js-copy-permalink" style="cursor:pointer;" data-original-text="Copy permalink">Copy permalink</clipboard-copy></li>
-        <li><a class="dropdown-item js-update-url-with-hash" id="js-view-git-blame" role="menuitem" href="/jlfilho/SRCNN-Keras/blame/8c3e425b11eb66312f1603cfb0be260037c95479/libs/restore.py">View git blame</a></li>
+        <li><a class="dropdown-item js-update-url-with-hash" id="js-view-git-blame" role="menuitem" href="/jlfilho/SRCNN-Keras/blame/8c3e425b11eb66312f1603cfb0be260037c95479/libs/srcnn.py">View git blame</a></li>
           <li><a class="dropdown-item" id="js-new-issue" role="menuitem" href="/jlfilho/SRCNN-Keras/issues/new">Reference in new issue</a></li>
       </ul>
     </details-menu>
@@ -1587,7 +2167,7 @@
 <div class="footer container-lg width-full p-responsive" role="contentinfo">
   <div class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
     <ul class="list-style-none d-flex flex-wrap col-12 col-lg-5 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
-      <li class="mr-3 mr-lg-0">&copy; 2019 <span title="0.31523s from unicorn-cb9b97fc9-mnb4r">GitHub</span>, Inc.</li>
+      <li class="mr-3 mr-lg-0">&copy; 2019 <span title="0.36129s from unicorn-67d5c76bc6-p7k7z">GitHub</span>, Inc.</li>
         <li class="mr-3 mr-lg-0"><a data-ga-click="Footer, go to terms, text:terms" href="https://github.com/site/terms">Terms</a></li>
         <li class="mr-3 mr-lg-0"><a data-ga-click="Footer, go to privacy, text:privacy" href="https://github.com/site/privacy">Privacy</a></li>
         <li class="mr-3 mr-lg-0"><a data-ga-click="Footer, go to security, text:security" href="https://github.com/security">Security</a></li>
