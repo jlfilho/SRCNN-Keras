@@ -76,7 +76,7 @@ class SRCNN():
         
         model.compile(
             loss=self.loss,
-            optimizer=SGD(lr=self.lr, momentum=0.9, decay=1e-6, nesterov=True), #Adam(lr=self.lr,beta_1=0.9, beta_2=0.999), 
+            optimizer= Adam(lr=self.lr,beta_1=0.9, beta_2=0.999), #SGD(lr=self.lr),
             metrics=[psnr]
         )
 
@@ -84,15 +84,14 @@ class SRCNN():
 
         inputs = Input(shape=(None, None, self.channels))
           
-        x = Conv2D(filters= 64, kernel_size = (9,9), strides=1, 
+        x = Conv2D(filters= 64, kernel_size = (9,9), strides=1, activation='relu',
             kernel_initializer=RandomNormal(mean=0.0, stddev=0.001, seed=None),bias_initializer='zeros',
             padding = "valid", use_bias=True, name='conv1')(inputs)
-        x = ReLU()(x)
+        
 
-        x = Conv2D(filters= 32, kernel_size = (1,1), strides=1, 
+        x = Conv2D(filters= 32, kernel_size = (1,1), strides=1, activation='relu', 
             kernel_initializer=RandomNormal(mean=0.0, stddev=0.001, seed=None),bias_initializer='zeros',
             padding = "valid", use_bias=True, name='conv2')(x)
-        x = ReLU()(x)
 
         x = Conv2D(filters= self.channels, kernel_size = (5,5), strides=1, 
             kernel_initializer=RandomNormal(mean=0.0, stddev=0.001, seed=None),bias_initializer='zeros',
@@ -224,8 +223,8 @@ if __name__ == "__main__":
 
     # Instantiate the TSRGAN object
     print(">> Creating the SRCNN network")
-    srcnn = SRCNN(height_lr=16, width_lr=16,lr=1e-4,upscaling_factor=2,channels=3,colorspace = 'RGB')
-    #srcnn.load_weights(weights='../model/SRCNN_2X.h5')
+    srcnn = SRCNN(height_lr=16, width_lr=16,lr=1e-5,upscaling_factor=2,channels=1,colorspace = 'YCbCr')
+    srcnn.load_weights(weights='../model/SRCNN_2X.h5')
     
 
     srcnn.train(
@@ -233,15 +232,15 @@ if __name__ == "__main__":
             batch_size=128,
             steps_per_epoch=625,
             steps_per_validation=10,
-            crops_per_image=4,
+            crops_per_image=32,
             print_frequency=30,
             log_tensorboard_update_freq=10,
             workers=2,
             max_queue_size=11,
             model_name='SRCNN',
-            datapath_train='../../data/data_large/', 
+            datapath_train='../../data/train2017/', 
             datapath_validation='../../data/val_large', 
-            datapath_test='../../data/Set5_full/',
+            datapath_test='../../data/benchmarks/Set5/',
             log_weight_path='../model/', 
             log_tensorboard_path='../logs/',
             log_test_path='../test/'
