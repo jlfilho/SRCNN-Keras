@@ -10,10 +10,10 @@ from keras.callbacks import ReduceLROnPlateau, EarlyStopping
 from keras.initializers import RandomNormal
 
 
+import restore 
 from util import DataLoader, plot_test_images
 from losses import psnr3 as psnr
 from losses import euclidean
-from restore import VideoRestore
 
 class SRCNN():
     """
@@ -23,16 +23,14 @@ class SRCNN():
         upscaling_factor= factor upscaling
         lr = learning rate
         training_mode: True or False
-        media_type: 'i' for image and 'v' for video
         colorspace: 'RGB' or 'YCbCr'
     """
     def __init__(self,
                  height_lr=24, width_lr=24, channels=3,
                  upscaling_factor=4, lr = 1e-3,
                  training_mode=True,
-                 media_type='i', colorspace = 'RGB'
+                 colorspace = 'RGB'
                  ):
-        self.media_type = media_type
 
         # Low-resolution image dimensions
         self.height_lr = height_lr
@@ -100,7 +98,7 @@ class SRCNN():
             padding = "valid", use_bias=True, name='conv3')(x)
         
         model = Model(inputs=inputs, outputs=x)
-        model.summary()
+        #model.summary()
         return model
 
     def train(self,
@@ -114,6 +112,7 @@ class SRCNN():
             workers=4,
             max_queue_size=5,
             model_name='SRCNN',
+            media_type='i', 
             datapath_train='../../../videos_harmonic/MYANMAR_2160p/train/',
             datapath_validation='../../../videos_harmonic/MYANMAR_2160p/validation/',
             datapath_test='../../../videos_harmonic/MYANMAR_2160p/test/',
@@ -128,7 +127,7 @@ class SRCNN():
             self.height_hr, self.width_hr,
             self.upscaling_factor,
             crops_per_image,
-            self.media_type,
+            media_type,
             self.channels,
             self.colorspace
         )
@@ -140,7 +139,7 @@ class SRCNN():
                 self.height_hr, self.width_hr,
                 self.upscaling_factor,
                 crops_per_image,
-                self.media_type,
+                media_type,
                 self.channels,
                 self.colorspace
         )
@@ -152,7 +151,7 @@ class SRCNN():
                 self.height_hr, self.width_hr,
                 self.upscaling_factor,
                 1,
-                self.media_type,
+                media_type,
                 self.channels,
                 self.colorspace
         )
@@ -220,15 +219,33 @@ class SRCNN():
             workers=workers
         )
 
+
     def predict(self,
-            lr_videopath=None,
-            sr_videopath=None,
-            print_frequency=30,
-            crf=15
+            lr_path = None,
+            sr_path = None,
+            print_frequency = False,
+            qp = 8,
+            fps = None,
+            media_type = None 
         ):
-        r = VideoRestore()
-        time_elapsed = r.write_srvideo(self.model,lr_videopath,sr_videopath,self.upscaling_factor,print_frequency=print_frequency,crf=crf)
+        """ lr_videopath: path of video in low resoluiton
+            sr_videopath: path to output video 
+            print_frequency: print frequncy the time per frame and estimated time, if False no print 
+            crf: [0,51] QP parameter 0 is the best quality and 51 is the worst one
+            fps: framerate if None is use the same framerate of the LR video
+            media_type: type of media 'v' to video and 'i' to image
+        """
+        if(media_type == 'v'):
+            time_elapsed = restore.write_srvideo(self.model,lr_path,sr_path,self.upscaling_factor,print_frequency=print_frequency,crf=qp,fps=fps)
+        elif(media_type == 'i'):
+            time_elapsed = restore.write_sr_images(self.model, lr_imagepath=lr_path, sr_imagepath=sr_path,scale=self.upscaling_factor)
+        else:
+            print(">> Media type not defined or not suported!")
+            return 0
         return time_elapsed
+    
+    
+
 
 # Run the SRCNN network
 if __name__ == "__main__":
@@ -238,12 +255,21 @@ if __name__ == "__main__":
     srcnn = SRCNN(height_lr=16, width_lr=16,lr=1e-4,upscaling_factor=2,channels=3,colorspace = 'RGB')
     srcnn.load_weights(weights='../model/SRCNN_2X.h5')
 
+
     t = srcnn.predict(
-            lr_videopath='../out/walk_360x288.mp4', 
-            sr_videopath='../out/walk_720x576.mp4',
-            print_frequency=30,
-            crf=0
+            lr_path = '../../data/benchmarks/Set5/baby.png', 
+            sr_path = '../out/baby.png',
+            media_type = 'i'
     )
+
+    """ t = srcnn.predict(
+            lr_path='../out/videoSRC148_640x360_24_qp_00.264', 
+            sr_path='../out/videoSRC148_640x360_24_qp_00.mp4',
+            qp=8,
+            print_frequency=30,
+            fps=60,
+            media_type='v'
+    ) """
     
 
     """ srcnn.train(
