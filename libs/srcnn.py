@@ -1,4 +1,6 @@
 import os
+import logging
+import fnmatch
 import tensorflow as tf
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
 from keras.layers import Input, Conv2D, MaxPooling2D
@@ -13,7 +15,7 @@ from keras.initializers import RandomNormal
 import restore 
 from util import DataLoader, plot_test_images
 from losses import psnr3 as psnr
-from losses import euclidean
+from losses import euclidean, cosine, charbonnier
 
 class SRCNN():
     """
@@ -26,8 +28,8 @@ class SRCNN():
         colorspace: 'RGB' or 'YCbCr'
     """
     def __init__(self,
-                 height_lr=24, width_lr=24, channels=3,
-                 upscaling_factor=4, lr = 1e-3,
+                 height_lr=16, width_lr=16, channels=3,
+                 upscaling_factor=4, lr = 1e-4,
                  training_mode=True,
                  colorspace = 'RGB'
                  ):
@@ -75,7 +77,7 @@ class SRCNN():
         
         model.compile(
             loss=self.loss,
-            optimizer=SGD(lr=self.lr, momentum=0.9, decay=1e-6, nesterov=True), #Adam(lr=self.lr,beta_1=0.9, beta_2=0.999), 
+            optimizer= SGD(lr=self.lr, momentum=0.9, decay=1e-6, nesterov=True), #Adam(lr=self.lr,beta_1=0.9, beta_2=0.999), 
             metrics=[psnr]
         )
 
@@ -122,6 +124,7 @@ class SRCNN():
         ):
 
         # Create data loaders
+        
         train_loader = DataLoader(
             datapath_train, batch_size,
             self.height_hr, self.width_hr,
@@ -131,6 +134,7 @@ class SRCNN():
             self.channels,
             self.colorspace
         )
+        
 
         validation_loader = None 
         if datapath_validation is not None:
@@ -174,14 +178,14 @@ class SRCNN():
         # Callback: Stop training when a monitored quantity has stopped improving
         earlystopping = EarlyStopping(
             monitor='val_loss', 
-            patience=6000, verbose=1, 
+            patience=30, verbose=1, 
             restore_best_weights=True )
         callbacks.append(earlystopping)
 
         # Callback: Reduce lr when a monitored quantity has stopped improving
-        reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=1e-1,
-                                    patience=5000, min_lr=1e-6,verbose=1)
-        callbacks.append(reduce_lr)
+        reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.5,
+                                    patience=5, min_lr=1e-6,verbose=1)
+        #callbacks.append(reduce_lr)
 
         # Callback: save weights after each epoch
         modelcheckpoint = ModelCheckpoint(
@@ -226,7 +230,8 @@ class SRCNN():
             print_frequency = False,
             qp = 8,
             fps = None,
-            media_type = None 
+            media_type = None,
+            gpu = False
         ):
         """ lr_videopath: path of video in low resoluiton
             sr_videopath: path to output video 
@@ -236,13 +241,88 @@ class SRCNN():
             media_type: type of media 'v' to video and 'i' to image
         """
         if(media_type == 'v'):
-            time_elapsed = restore.write_srvideo(self.model,lr_path,sr_path,self.upscaling_factor,print_frequency=print_frequency,crf=qp,fps=fps)
+            time_elapsed = restore.write_srvideo(self.model,lr_path,sr_path,self.upscaling_factor,print_frequency=print_frequency,crf=qp,fps=fps,gpu=gpu)
         elif(media_type == 'i'):
             time_elapsed = restore.write_sr_images(self.model, lr_imagepath=lr_path, sr_imagepath=sr_path,scale=self.upscaling_factor)
         else:
             print(">> Media type not defined or not suported!")
             return 0
         return time_elapsed
+
+def restoration(resolution=None,k=1,qp='25'):
+    logging.basicConfig(filename='../logs/srcnn.log', level=logging.INFO)
+    logging.info('Started')
+    #------------------------------------------------------
+
+    # Instantiate the TSRGAN object
+    print(">> Creating the SRCNN network")
+    srcnn = SRCNN(height_lr=16, width_lr=16,lr=1e-4,upscaling_factor=2,channels=3,colorspace = 'RGB')
+    srcnn.load_weights(weights='../model/SRCNN_v1_2X.h5')
+
+
+
+    if(resolution==None):
+        datapath = '/media/joao/SAMSUNG2/data/videoSRC180_960x540_24_mp4/' 
+        outpath ='/media/joao/SAMSUNG2/data/out/SRCNN/'
+        lfilenames = []
+        for dirpath, _, filenames in os.walk(datapath):
+            lfilenames = [os.path.join(dirpath, f) for f in filenames if any(filetype in f.lower() for filetype in ['jpeg', 'png', 'jpg','mp4','264','webm','wma'])]
+        i=1
+        for filename in sorted(lfilenames):
+            if(i>=k):
+                print("i={} - {} {}".format(i,filename,outpath+filename.split('/')[-1].split('.')[0]+'.mp4'))
+                t = srcnn.predict(
+                        lr_path=filename,
+                        sr_path=outpath+filename.split('/')[-1].split('.')[0]+'.mp4',
+                        qp=i-1,
+                        media_type='v',
+                        gpu=False
+                    )
+            i+=1
+
+    if(resolution=='540p'):
+        datapath = '/media/joao/SAMSUNG2/videoset_compress/540p/' #'../../data/videoset/540p/' 
+        outpath = '/media/joao/SAMSUNG1/data/CISRDCNN-keras/out/540p_2X_qp25/' #'../out/540p_2X/'
+        lfilenames = [] 
+        for dirpath, _, filenames in os.walk(datapath):
+            item = [f for f in filenames if any(filetype in f.lower() for filetype in ['jpeg', 'png', 'jpg','mp4','264','webm','wma']) if fnmatch.fnmatch(f, '*qp_'+str(qp)+'.264')]
+            if len(item):
+                lfilenames.append(os.path.join(dirpath, item[0]))
+        i=1
+        for filename in sorted(lfilenames): 
+            if(i>=k):
+                print("i={} - {} {}".format(i,filename,outpath+filename.split('/')[-1].split('.')[0]+'.mp4'))
+                t = srcnn.predict(
+                        lr_path=filename,
+                        sr_path=outpath+filename.split('/')[-1].split('.')[0]+'.mp4',
+                        qp=0,
+                        media_type='v',
+                        gpu=False
+                    )
+            i+=1
+
+    if(resolution=='360p'):
+        datapath = '/media/joao/SAMSUNG2/videoset_compress/360p/'#'../../data/videoset/360p/' 
+        outpath = '/media/joao/SAMSUNG1/data/CISRDCNN-keras/out/360p_2X_qp25/' #'../out/360p_2X/'
+        i=1
+        for dirpath, _, filenames in os.walk(datapath):
+            filenames = sorted([f for f in filenames if any(filetype in f.lower() for filetype in ['jpeg', 'png', 'jpg','mp4','264','webm','wma']) if fnmatch.fnmatch(f, '*qp_'+str(qp)+'.264')])
+            for filename in filenames:
+                if(i>=k):
+                    print("i={} - {}".format(i,os.path.join(dirpath, filename),outpath+filename.split('.')[0]+'.mp4'))
+                    t = srcnn.predict(
+                            lr_path=os.path.join(dirpath, filename), 
+                            sr_path=outpath+filename.split('.')[0]+'.mp4',
+                            qp=0,
+                            media_type='v',
+                            gpu=False
+                        )
+                i+=1 
+
+    #------------------------------------------------------
+
+
+    logging.info('Finished')
     
     
 
@@ -250,27 +330,40 @@ class SRCNN():
 # Run the SRCNN network
 if __name__ == "__main__":
 
-    # Instantiate the TSRGAN object
-    print(">> Creating the SRCNN network")
-    srcnn = SRCNN(height_lr=16, width_lr=16,lr=1e-4,upscaling_factor=2,channels=3,colorspace = 'RGB')
-    srcnn.load_weights(weights='../model/SRCNN_2X.h5')
+    restoration()
 
-
-    t = srcnn.predict(
-            lr_path = '../../data/benchmarks/Set5/baby.png', 
-            sr_path = '../out/baby.png',
-            media_type = 'i'
-    )
-
-    """ t = srcnn.predict(
-            lr_path='../out/videoSRC148_640x360_24_qp_00.264', 
-            sr_path='../out/videoSRC148_640x360_24_qp_00.mp4',
-            qp=8,
-            print_frequency=30,
-            fps=60,
-            media_type='v'
-    ) """
     
+
+
+    """ datapath = '../../data/videoset/540p/' 
+    outpath = '../out/540p_2X/'
+    for dirpath, _, filenames in os.walk(datapath):
+        for filename in [f for f in sorted(filenames) if any(filetype in f.lower() for filetype in ['jpeg', 'png', 'jpg','mp4','264','webm','wma'])]:
+            print(os.path.join(dirpath, filename),outpath+filename.split('.')[0]+'.mp4')
+            t = srcnn.predict(
+                    lr_path=os.path.join(dirpath, filename), 
+                    sr_path=outpath+filename.split('.')[0]+'.mp4',
+                    qp=0,
+                    media_type='v',
+                    gpu=False
+                ) """
+
+    datapath = '../../data/videoset/360p/' 
+    outpath = '../out/360p_2X/'
+    i=1
+    for dirpath, _, filenames in os.walk(datapath):
+        for filename in [f for f in sorted(filenames) if any(filetype in f.lower() for filetype in ['jpeg', 'png', 'jpg','mp4','264','webm','wma'])]:
+            if(i==17):
+                print(os.path.join(dirpath, filename),outpath+filename.split('.')[0]+'.mp4')
+                t = srcnn.predict(
+                        lr_path=os.path.join(dirpath, filename), 
+                        sr_path=outpath+filename.split('.')[0]+'.mp4',
+                        qp=0,
+                        media_type='v',
+                        gpu=False
+                    )
+            i+=1
+                
 
     """ srcnn.train(
             epochs=10000,

@@ -82,19 +82,21 @@ class DataLoader(Sequence):
     @staticmethod
     def unscale_lr_imgs(imgs):
         """Un-Scale low-res images"""
-        return imgs * 255
+        imgs = imgs * 255
+        imgs = np.clip(imgs, 0., 255.)
+        return imgs.astype('uint8')
     
     @staticmethod
     def scale_hr_imgs(imgs):
         """Scale high-res images prior to passing to SRGAN"""
-        #return imgs / 127.5 - 1
         return imgs / 255.
     
     @staticmethod
     def unscale_hr_imgs(imgs):
         """Un-Scale high-res images"""
-        #return (imgs + 1.) * 127.5
-        return imgs * 255
+        imgs = imgs * 255
+        imgs = np.clip(imgs, 0., 255.)
+        return imgs.astype('uint8')
     
     def count_frames_manual(self,cap):
         count=0
@@ -383,8 +385,8 @@ def plot_test_images(model, loader, datapath_test, test_output, epoch, name='SRC
                     ),
                     axis=0
                 )
-            pre[pre[:] > 255] = 255
-            pre[pre[:] < 0] = 0
+            #pre[pre[:] > 255] = 255
+            #pre[pre[:] < 0] = 0
             # SRCNN prediction
             imgs_sr.append(pre)
 
@@ -403,7 +405,6 @@ def plot_test_images(model, loader, datapath_test, test_output, epoch, name='SRC
                 imgs_lr = [loader.unscale_lr_imgs(img[6:-6,6:-6,:channels]).astype(np.uint8) for img in imgs_lr]
                 imgs_hr = [loader.unscale_hr_imgs(img).astype(np.uint8) for img in imgs_hr]
                 imgs_sr = [loader.unscale_hr_imgs(img).astype(np.uint8) for img in imgs_sr]
-            
         
         # Loop through images
         for img_hr, img_lr, img_sr, img_path in zip(imgs_hr, imgs_lr, imgs_sr, test_images):
